@@ -1,0 +1,14 @@
+Source: qubes-mgmt-salt-dom0-virtual-machines
+Section: admin
+Priority: extra
+Maintainer: Jason Mehring <nrgaway@gmail.com>
+Build-Depends: debhelper (>= 9~), quilt
+Standards-Version: 3.9.5
+Homepage: http://www.qubes-os.org
+
+Package: qubes-mgmt-salt-dom0-virtual-machines
+Section: admin
+Architecture: all
+Depends: qubes-mgmt-salt-base, qubes-mgmt-salt-config, qubes-mgmt-salt-dom0
+Description: Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
+ Uses pillar data to define default VM names and configuration details.

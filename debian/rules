@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DESTDIR=$(shell pwd)/debian/qubes-mgmt-salt-dom0-virtual-machines
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	dh_clean --keep
+
+override_dh_auto_install:
+	make install DESTDIR=$(DESTDIR) BINDIR=/usr/bin SYSCONFDIR=/etc

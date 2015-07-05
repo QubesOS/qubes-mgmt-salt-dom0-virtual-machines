@@ -1,0 +1,23 @@
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+name:          virtual-machines-formula
+top_level_dir: virtual-machines
+saltenv:       dom0
+version:       3.0.0
+release:       1
+os:            Qubes
+os_family:     RedHat
+summary:       Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
+description: |
+  Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
+  Uses pillar data to define default VM names and configuration details.
+
+state-tops:
+  dom0:
+    disable:
+      - virtual-machines
+
+pillar-tops:
+  dom0:
+    enable:
+      - virtual-machines
