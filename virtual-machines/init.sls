@@ -1,11 +1,12 @@
 #!yamlscript
-#
+# -*- coding: utf-8 -*-
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
 ##
-# Qubes Virtual Machine Installation
+# virtual-machines
+# ================
 #
-# qubesctl state.sls virtual-machines
+# Qubes Virtual Machine Installation
 #
 # This state will install virtual machines from the
 # 'qubes:defaults:virtual-machines' pillar that describes the desired default
@@ -17,6 +18,9 @@
 # install.
 #
 # The state will be skipped if a VM of the same name already exists.
+#
+# Execute:
+#   qubesctl state.sls virtual-machines
 ##
 
 
