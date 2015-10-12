@@ -20,8 +20,9 @@
 case "${1}" in
     configure)
         # Update Salt Configuration
-        qubesctl state.sls qubes.config -l quiet --out quiet > /dev/null || true
-        qubesctl saltutil.sync_all -l quiet --out quiet > /dev/null || true
+        qubesctl state.sls config quiet --out quiet > /dev/null || true
+        qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
+        qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
         # Enable States
         #qubesctl topd.enable virtual-machines saltenv=dom0 -l quiet --out quiet > /dev/null || true

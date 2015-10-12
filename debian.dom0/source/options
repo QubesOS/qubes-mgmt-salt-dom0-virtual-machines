@@ -1,0 +1,6 @@
+extend-diff-ignore = "(^|/)(.git/.*)$"
+extend-diff-ignore = "(^|/)(pkgs/.*)$"
+extend-diff-ignore = "(^|/)(rpm_spec/.*)$"
+extend-diff-ignore = "(^|/)(debian.*)$"
+extend-diff-ignore = "(^|/)(.*[.]vm)(/.*|)$"
+extend-diff-ignore = "(^|/)(.*[.]dom0)(/.*|)$"
