@@ -1,1 +1,1 @@
-/srv/pillar/dom0/virtual-machines/init.sls
+/srv/pillar/dom0/qvm/init.sls

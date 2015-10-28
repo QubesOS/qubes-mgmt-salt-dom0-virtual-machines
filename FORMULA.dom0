@@ -2,8 +2,8 @@
 
 package-name:       qubes-mgmt-salt-dom0-virtual-machines
 name:               virtual-machines-formula
-top_level_dir:      virtual-machines
-formula-files:      README.rst LICENSE virtual-machines
+top_level_dir:      qvm
+formula-files:      README.rst LICENSE qvm
 pillar-files:       pillar
 test-formula-files: 
 test-pillar-files: 
@@ -20,10 +20,17 @@ description: |
 
 state-tops:
   dom0:
-    disable:
-      - virtual-machines
+    enable:
+      - qvm.sys-net
+      - qvm.sys-firewall
+      - qvm.sys-whonix
+      - qvm.anon-whonix
+      - qvm.personal
+      - qvm.work
+      - qvm.untrusted
+      - qvm.vault
 
 pillar-tops:
   dom0:
     enable:
-      - virtual-machines
+      - qvm
