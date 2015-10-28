@@ -4,4 +4,4 @@
 dom0:
   dom0:
     - match: nodegroup
-    - virtual-machines
+    - qvm
