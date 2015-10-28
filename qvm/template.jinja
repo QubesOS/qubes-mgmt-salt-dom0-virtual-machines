@@ -1,0 +1,111 @@
+# -*- coding: utf-8 -*-
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+##
+# Virtual Machine State Template
+# ==============================
+##
+
+#
+# get_state_options
+#
+{% macro get_state_options(vm) -%}
+  {%- set actions = [] %}
+  {%- set options = [] %}
+  {%- set valid_actions = [
+    'kill',
+    'halted',
+    'absent',
+    'missing',
+    'present',
+    'exists',
+    'prefs',
+    'service',
+    'start',
+    'running',
+    'pause',
+    'unpause',
+    'shutdown',
+    'run',
+    'clone',
+  ] %}
+  {%- set state_options = [
+    'name',
+    'require',
+  ] %}
+
+  {%- for option in state_options %}
+    {%- if option in vm %}
+      {%- do options.append({option: vm[option]}) %}
+    {%- endif %}
+  {%- endfor -%}
+
+  {%- for action in valid_actions %}
+    {%- if action in vm %}
+      {%- do actions.append(action) %}
+      {%- do options.append({action: vm[action]}) %}
+    {%- endif %}
+  {%- endfor -%}
+  {%- do options.append({'actions': actions }) %}
+
+  {%- set state = {'qvm.vm': options} %}
+  {%- if caller is defined %}
+    {{ caller(state) }}
+  {%- else %}
+    {{- state|yaml(False)|indent(2) }}
+  {%- endif %}
+{%- endmacro %}
+
+#
+# state_debug
+#
+{% macro state_debug(defaults, vm) %}
+{% if defaults.get('debug', False) -%}
+{{ vm.name }}-debug:
+  debug.mode:
+    - enable-all: True
+    - require-in:
+      - qvm: {{ vm.name }}
+{%- endif %}
+{% endmacro %}
+
+#
+# state_vm
+#
+{% macro state_vm(vm) %}
+{{ vm.name }}:
+  {{ get_state_options(vm) }}
+{% endmacro %}
+
+#
+# skip
+#
+{% macro skip(vm) -%}
+{{ vm.name }}:
+  qvm.exists: []
+{%- endmacro %}
+
+#
+# load
+#
+{% macro load(defaults) -%}
+  {%- set vmname = defaults.name %}
+  {%- set pillar_data = salt['pillar.get']('qvm') %}
+
+  {%- set vm = defaults %}
+  {%- do vm.update(pillar_data.get(vmname, {})) %}
+
+  {#- Update 'defaults' after vm/template to prevent clobbering data #}
+  {%- do defaults.update(pillar_data) %}
+  {%- set force = defaults.get('force', vm.get('force', False)) %}
+
+  {#- Only attempt to install the VM if it is missing (not installed) to prevent
+   # changing an existing configuration, unless ``force`` is True.
+   #}
+  {%- if force or salt['qvm.check'](vm.name, 'missing').passed() -%}
+    {{- state_debug(defaults, vm) }}
+    {{- state_vm(vm) }}
+  {%- else -%}
+    {{- skip(vm) }}
+  {%- endif -%}
+{%- endmacro %}
