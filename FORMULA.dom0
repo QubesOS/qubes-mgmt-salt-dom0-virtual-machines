@@ -18,18 +18,6 @@ description: |
   Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
   Uses pillar data to define default VM names and configuration details.
 
-state-tops:
-  dom0:
-    enable:
-      - qvm.sys-net
-      - qvm.sys-firewall
-      - qvm.sys-whonix
-      - qvm.anon-whonix
-      - qvm.personal
-      - qvm.work
-      - qvm.untrusted
-      - qvm.vault
-
 pillar-tops:
   dom0:
     enable:

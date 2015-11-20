@@ -25,14 +25,14 @@ case "${1}" in
         qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
         # Enable States
-        qubesctl top.enable qvm.sys-net saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.sys-firewall saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.whonix saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.anon-whonix saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.personal saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.work saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.untrusted saltenv=dom0 -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qvm.vault saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.sys-net saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.sys-firewall saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.whonix saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.anon-whonix saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.personal saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.work saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.untrusted saltenv=dom0 -l quiet --out quiet > /dev/null || true
+#       qubesctl top.enable qvm.vault saltenv=dom0 -l quiet --out quiet > /dev/null || true
 
         # Enable Pillar States
         qubesctl top.enable qvm saltenv=dom0 pillar=true -l quiet --out quiet > /dev/null || true

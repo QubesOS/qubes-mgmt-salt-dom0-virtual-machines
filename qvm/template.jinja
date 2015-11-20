@@ -90,7 +90,7 @@
 #
 {% macro load(defaults) -%}
   {%- set vmname = defaults.name %}
-  {%- set pillar_data = salt['pillar.get']('qvm') %}
+  {%- set pillar_data = salt['pillar.get']('qvm', {}) %}
 
   {%- set vm = defaults %}
   {%- do vm.update(pillar_data.get(vmname, {})) %}

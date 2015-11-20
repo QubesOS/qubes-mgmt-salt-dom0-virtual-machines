@@ -46,14 +46,14 @@ qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-qubesctl top.enable %{state_name}.sys-net saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.sys-firewall saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.sys-whonix saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.anon-whonix saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.personal saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.work saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.untrusted saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable %{state_name}.vault saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.sys-net saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.sys-firewall saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.sys-whonix saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.anon-whonix saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.personal saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.work saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.untrusted saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+#qubesctl top.enable %{state_name}.vault saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
 qubesctl top.enable %{state_name} saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
