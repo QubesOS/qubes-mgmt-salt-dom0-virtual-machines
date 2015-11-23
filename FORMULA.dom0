@@ -3,11 +3,12 @@
 package-name:       qubes-mgmt-salt-dom0-virtual-machines
 name:               virtual-machines-formula
 top_level_dir:      qvm
-formula-files:      README.rst LICENSE qvm
-pillar-files:       pillar
+formula-files:      qvm
+pillar-files:       pillar/qvm
 test-formula-files: 
 test-pillar-files: 
-formula_root:       /srv/formulas
+formula_dir:        /srv/formulas/dom0/virtual-machines-formula
+pillar_dir:         /srv/pillar/dom0/qvm
 saltenv:            dom0
 version:            3.0.0
 release:            1

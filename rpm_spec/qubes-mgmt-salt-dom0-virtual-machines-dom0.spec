@@ -60,8 +60,9 @@ qubesctl top.enable %{state_name} saltenv=%{saltenv} pillar=true -l quiet --out 
 
 %files
 %defattr(-,root,root)
+%doc LICENSE README.rst
 %attr(750, root, root) %dir /srv/formulas/dom0/virtual-machines-formula
-/srv/formulas/dom0/virtual-machines-formula/LICENSE
+/srv/formulas/dom0/virtual-machines-formula/qvm/README.rst
 /srv/formulas/dom0/virtual-machines-formula/qvm/anon-whonix.sls
 /srv/formulas/dom0/virtual-machines-formula/qvm/anon-whonix.top
 /srv/formulas/dom0/virtual-machines-formula/qvm/personal.sls
@@ -85,7 +86,7 @@ qubesctl top.enable %{state_name} saltenv=%{saltenv} pillar=true -l quiet --out 
 /srv/formulas/dom0/virtual-machines-formula/qvm/vault.top
 /srv/formulas/dom0/virtual-machines-formula/qvm/work.sls
 /srv/formulas/dom0/virtual-machines-formula/qvm/work.top
-/srv/formulas/dom0/virtual-machines-formula/README.rst
+/srv/formulas/dom0/virtual-machines-formula/qvm/LICENSE
 
 %attr(750, root, root) %dir /srv/pillar/dom0/qvm
 %config(noreplace) /srv/pillar/dom0/qvm/init.sls
