@@ -16,5 +16,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
+# This file is generated from FORMULA* by yaml-dumper in mgmt-salt builder plugin
 include Makefile.vars
+# This file is copied in from mgmt-salt
 include Makefile.install
