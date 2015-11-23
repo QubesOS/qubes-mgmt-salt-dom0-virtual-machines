@@ -1,9 +1,8 @@
 %{!?version: %define version %(cat version)}
-%{!?rel: %define rel %(cat rel)}
 
 Name:      qubes-mgmt-salt-dom0-virtual-machines
 Version:   %{version}
-Release:   %{rel}%{?dist}
+Release:   1%{?dist}
 Summary:   Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
 License:   GPL 2.0
 URL:	   http://www.qubes-os.org/
