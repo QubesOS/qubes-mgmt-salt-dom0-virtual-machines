@@ -5,7 +5,7 @@
 # qvm.anon-whonix
 # ===============
 #
-# Installs 'anon-whonix' ProxyVM.
+# Installs 'anon-whonix' AppVM.
 #
 # Pillar data will also be merged if available within the ``qvm`` pillar key:
 #   ``qvm:anon-whonix``
