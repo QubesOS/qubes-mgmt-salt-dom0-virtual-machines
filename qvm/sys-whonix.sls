@@ -33,9 +33,6 @@ present:
 prefs:
   - netvm:     sys-firewall
   - autostart: true
-service:
-  - enable:
-    - whonix-tor-enable
 require:
   - pkg:       template-whonix-gw
   - qvm:       sys-firewall
