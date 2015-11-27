@@ -19,6 +19,10 @@ Available states
 ---------------
 System NetVM
 
+``qvm.sys-usb``
+---------------
+System UsbVM
+
 ``qvm.sys-firewall``
 --------------------
 System firewall ProxyVM

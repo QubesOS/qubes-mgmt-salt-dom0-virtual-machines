@@ -62,6 +62,8 @@ qubesctl top.enable qvm saltenv=dom0 pillar=true -l quiet --out quiet > /dev/nul
 /srv/formulas/dom0/virtual-machines-formula/qvm/sys-firewall.top
 /srv/formulas/dom0/virtual-machines-formula/qvm/sys-net.sls
 /srv/formulas/dom0/virtual-machines-formula/qvm/sys-net.top
+/srv/formulas/dom0/virtual-machines-formula/qvm/sys-usb.sls
+/srv/formulas/dom0/virtual-machines-formula/qvm/sys-usb.top
 /srv/formulas/dom0/virtual-machines-formula/qvm/sys-whonix.sls
 /srv/formulas/dom0/virtual-machines-formula/qvm/sys-whonix.top
 /srv/formulas/dom0/virtual-machines-formula/qvm/template-debian-7.sls
