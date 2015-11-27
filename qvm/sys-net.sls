@@ -28,6 +28,7 @@ present:
 prefs:
   - netvm:     'none'
   - autostart: true
+  - pcidevs:   {{ salt['grains.get']('pci_net_devs', []) }}
 {%- endload %}
 
 {{ load(defaults) }}
