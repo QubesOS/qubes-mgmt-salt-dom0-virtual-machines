@@ -17,7 +17,6 @@
 ##
 
 include:
-  - qvm.template-fedora-21
   - qvm.sys-firewall
 
 {%- from "qvm/template.jinja" import load -%}
@@ -25,12 +24,9 @@ include:
 {% load_yaml as defaults -%}
 name:         untrusted
 present:
-  - template: fedora-21
   - label:    red
 prefs:
   - netvm:    sys-firewall
-require:
-  - pkg:      template-fedora-21
   - qvm:      sys-firewall
 {%- endload %}
 

@@ -16,15 +16,11 @@
 #   qubesctl state.sls qvm.sys-net dom0
 ##
 
-include:
-  - qvm.template-fedora-21
-
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
 name:          sys-net
 present:
-  - template:  fedora-21
   - label:     red
   - mem:       300
   - flags:
@@ -32,8 +28,6 @@ present:
 prefs:
   - netvm:     'none'
   - autostart: true
-require:
-  - pkg:       template-fedora-21
 {%- endload %}
 
 {{ load(defaults) }}

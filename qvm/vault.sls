@@ -16,20 +16,14 @@
 #   qubesctl state.sls qvm.vault dom0
 ##
 
-include:
-  - qvm.template-fedora-21
-
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
 name:         vault
 present:
-  - template: fedora-21
   - label:    black
 prefs:
   - netvm:    'none'
-require:
-  - pkg:      template-fedora-21
 {%- endload %}
 
 {{ load(defaults) }}
