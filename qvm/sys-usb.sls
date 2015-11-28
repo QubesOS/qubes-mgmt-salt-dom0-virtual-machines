@@ -29,6 +29,7 @@ prefs:
   - netvm:     'none'
   - autostart: true
   - pcidevs:   {{ salt['grains.get']('pci_usb_devs', []) }}
+  - pci_strictreset: false
 {%- endload %}
 
 {{ load(defaults) }}
