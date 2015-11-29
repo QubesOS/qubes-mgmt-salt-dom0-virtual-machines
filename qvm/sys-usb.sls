@@ -30,6 +30,9 @@ prefs:
   - autostart: true
   - pcidevs:   {{ salt['grains.get']('pci_usb_devs', []) }}
   - pci_strictreset: false
+service:
+  - disable:
+    - network-manager
 {%- endload %}
 
 {{ load(defaults) }}
