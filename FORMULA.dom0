@@ -6,7 +6,7 @@ version:            3.0.1
 release:            1
 name:               virtual-machines-formula
 top_level_dir:      qvm
-formula-files:      qvm
+formula-files:      README.rst LICENSE qvm
 pillar-files:       pillar/qvm
 formula_dir:        $(MGMT_DEFAULT_FORMULA_DIR)/$(MGMT_SALTENV)/$(MGMT_NAME)
 pillar_dir:         $(MGMT_DEFAULT_PILLAR_DIR)/$(MGMT_SALTENV)/$(MGMT_TOP_LEVEL_DIR)
