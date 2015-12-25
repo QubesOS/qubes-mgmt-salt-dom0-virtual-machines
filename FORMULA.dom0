@@ -1,17 +1,15 @@
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
 package-name:       qubes-mgmt-salt-dom0-virtual-machines
+saltenv:            dom0
+version:            3.0.1
+release:            1
 name:               virtual-machines-formula
 top_level_dir:      qvm
-formula-files:      qvm
+formula-files:      README.rst LICENSE qvm
 pillar-files:       pillar/qvm
-test-formula-files: 
-test-pillar-files: 
-formula_dir:        /srv/formulas/dom0/virtual-machines-formula
-pillar_dir:         /srv/pillar/dom0/qvm
-saltenv:            dom0
-version:            3.0.0
-release:            1
+formula_dir:        $(MGMT_DEFAULT_FORMULA_DIR)/$(MGMT_SALTENV)/$(MGMT_NAME)
+pillar_dir:         $(MGMT_DEFAULT_PILLAR_DIR)/$(MGMT_SALTENV)/$(MGMT_TOP_LEVEL_DIR)
 os:                 Qubes
 os_family:          RedHat
 summary:            Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
