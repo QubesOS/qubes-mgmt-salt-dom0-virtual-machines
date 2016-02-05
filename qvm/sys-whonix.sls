@@ -26,7 +26,7 @@ include:
 name:          sys-whonix
 present:
   - template:  whonix-gw
-  - label:     purple
+  - label:     black
   - mem:       500
   - flags:
     - proxy

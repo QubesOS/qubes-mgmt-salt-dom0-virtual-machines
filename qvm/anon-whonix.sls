@@ -26,7 +26,7 @@ include:
 name:          anon-whonix
 present:
   - template:  whonix-ws
-  - label:     purple
+  - label:     red
 prefs:
   - netvm:     sys-whonix
 require:
