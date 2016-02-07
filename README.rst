@@ -23,6 +23,10 @@ System NetVM
 ---------------
 System UsbVM
 
+``qvm.sys-net-with-usb``
+---------------
+System UsbVM bundled into NetVM. Do not enable together with ``qvm.sys-usb``.
+
 ``qvm.sys-firewall``
 --------------------
 System firewall ProxyVM
