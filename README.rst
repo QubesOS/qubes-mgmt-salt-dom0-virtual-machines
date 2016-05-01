@@ -7,7 +7,7 @@ configuring virtual-machine AppVM's.
 
 Uses pillar data to define default VM names and configuration details.  Default
 settings can be overridden in pillar data located at:
-    ``/srv/pillar/dom0/qvm/init.sls``
+    ``/srv/pillar/base/qvm/init.sls``
 
 Available states
 ================
