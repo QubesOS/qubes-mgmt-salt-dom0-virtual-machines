@@ -32,7 +32,6 @@ make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{
 
 %post
 # Update Salt Configuration
-qubesctl state.sls config -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
@@ -98,5 +97,7 @@ fi
 %attr(750, root, root) %dir /srv/pillar/base/qvm
 %config(noreplace) /srv/pillar/base/qvm/init.sls
 /srv/pillar/base/qvm/init.top
+
+%config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf
 
 %changelog
