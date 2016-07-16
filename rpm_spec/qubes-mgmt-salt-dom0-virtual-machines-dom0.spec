@@ -31,20 +31,6 @@ ln -sf . %{name}-%{version}
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} SYSCONFDIR=%{_sysconfdir}
 
 %post
-# Update Salt Configuration
-qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
-qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
-
-# Enable States
-#qubesctl top.enable qvm.sys-net -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.sys-firewall -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.sys-whonix -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.anon-whonix -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.personal -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.work -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.untrusted -l quiet --out quiet > /dev/null || true
-#qubesctl top.enable qvm.vault -l quiet --out quiet > /dev/null || true
-
 # Enable Pillar States
 qubesctl top.enable qvm pillar=true -l quiet --out quiet > /dev/null || true
 
