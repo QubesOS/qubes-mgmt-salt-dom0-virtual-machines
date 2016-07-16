@@ -68,6 +68,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/LICENSE
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.top
+/srv/formulas/base/virtual-machines-formula/qvm/hide-usb-from-dom0.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.sls

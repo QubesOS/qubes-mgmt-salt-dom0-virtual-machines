@@ -12,6 +12,7 @@
 
 include:
   - qvm.sys-net
+  - qvm.hide-usb-from-dom0
 
 {% set vmname = salt['pillar.get']('qvm:sys-net:name', 'sys-net') %}
 

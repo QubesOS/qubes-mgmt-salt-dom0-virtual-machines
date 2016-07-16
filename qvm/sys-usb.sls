@@ -16,6 +16,9 @@
 #   qubesctl state.sls qvm.sys-usb dom0
 ##
 
+include:
+  - qvm.hide-usb-from-dom0
+
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
