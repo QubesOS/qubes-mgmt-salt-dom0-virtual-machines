@@ -22,12 +22,11 @@
 name:          sys-net
 present:
   - label:     red
-  - mem:       300
-  - flags:
-    - net
 prefs:
-  - netvm:     'none'
+  - netvm:
   - autostart: true
+  - provides-network: true
+  - memory: 300
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', []) }}
 {%- endload %}
 

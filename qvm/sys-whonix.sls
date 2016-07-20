@@ -32,6 +32,7 @@ present:
     - proxy
 prefs:
   - netvm:     sys-firewall
+  - provides-network: true
   - autostart: true
 require:
   - pkg:       template-whonix-gw
