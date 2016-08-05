@@ -35,7 +35,7 @@ make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{
 qubesctl top.enable qvm pillar=true -l quiet --out quiet > /dev/null || true
 
 # Migrate enabled tops from dom0 to base environment
-for top in sys-net sys-firewall sys-whonix anon-whonix personal work untrusted vault sys-net-with-usb; do
+for top in sys-net sys-firewall sys-whonix anon-whonix personal work untrusted vault sys-usb sys-net-with-usb; do
     if [ -h /srv/salt/_tops/dom0/qvm.$top.top ]; then
         rm -f /srv/salt/_tops/dom0/qvm.$top.top
         qubesctl top.enable qvm.$top -l quiet --out quiet > /dev/null || true
