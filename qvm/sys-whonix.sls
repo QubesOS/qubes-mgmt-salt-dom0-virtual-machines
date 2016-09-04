@@ -28,8 +28,6 @@ present:
   - template:  whonix-gw
   - label:     black
   - mem:       500
-  - flags:
-    - proxy
 prefs:
   - netvm:     sys-firewall
   - provides-network: true
