@@ -23,7 +23,7 @@ name:          sys-net
 present:
   - label:     red
 prefs:
-  - netvm:
+  - netvm:    !!null
   - autostart: true
   - provides-network: true
   - memory: 300

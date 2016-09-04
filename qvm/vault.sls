@@ -23,7 +23,7 @@ name:         vault
 present:
   - label:    black
 prefs:
-  - netvm:    'none'
+  - netvm:    !!null
 {%- endload %}
 
 {{ load(defaults) }}
