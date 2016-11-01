@@ -25,12 +25,11 @@ include:
 name:          sys-firewall
 present:
   - label:     green
-  - mem:       500
-  - flags:
-    - proxy
 prefs:
   - netvm:     sys-net
   - autostart: true
+  - provides-network: true
+  - memory:       500
 require:
   - qvm:       sys-net
 {%- endload %}
