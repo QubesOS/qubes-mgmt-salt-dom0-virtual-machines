@@ -29,7 +29,7 @@ present:
   - flags:
     - net
 prefs:
-  - netvm:    !!null
+  - netvm:     ""
   - autostart: true
   - pcidevs:   {{ salt['grains.get']('pci_usb_devs', []) }}
   - pci_strictreset: false
