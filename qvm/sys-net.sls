@@ -28,6 +28,9 @@ prefs:
   - provides-network: true
   - memory: 300
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', []) }}
+service:
+  - enable:
+    - clocksync
 {%- endload %}
 
 {{ load(defaults) }}
