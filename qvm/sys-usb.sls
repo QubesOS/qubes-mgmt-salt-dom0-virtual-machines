@@ -48,6 +48,6 @@ qubes-input-proxy:
 sys-usb-input-proxy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.InputMouse
-    - text: sys-usb dom0 ask,user=root
+    - text: sys-usb dom0 allow,user=root
     - require:
       - pkg:       qubes-input-proxy
