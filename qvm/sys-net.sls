@@ -27,7 +27,7 @@ prefs:
   - virt_mode: pv
   - autostart: true
   - provides-network: true
-  - memory: 300
+  - memory: 400
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', []) }}
 service:
   - enable:
