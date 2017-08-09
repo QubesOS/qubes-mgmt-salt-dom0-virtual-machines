@@ -51,6 +51,10 @@ Untrusted AppVM
 -------------
 Vault AppVM with no NetVM enabled.
 
+``qvm.default-dispvm``
+-------------
+Default Disposable VM template - fedora-25-dvm AppVM
+
 ``qvm.anon-whonix``
 -------------------
 Whonix workstation AppVM.
