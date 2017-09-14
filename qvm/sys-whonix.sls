@@ -39,14 +39,3 @@ require:
 
 {{ load(defaults) }}
 
-{% load_yaml as template -%}
-name:          whonix-gw
-force:         true
-prefs:
-  - netvm:     sys-whonix
-require:
-  - pkg:       template-whonix-gw
-  - qvm:       sys-whonix
-{%- endload %}
-
-{{ load(template) }}

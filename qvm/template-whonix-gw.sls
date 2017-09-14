@@ -15,3 +15,10 @@ template-whonix-gw:
   pkg.installed:
     - name:     qubes-template-whonix-gw
     - fromrepo: qubes-templates-community
+
+whonix-gw-update-policy:
+  file.prepend:
+    - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
+    - text:
+      - whonix-gw $default allow,target=sys-whonix
+      - whonix-gw $anyvm deny

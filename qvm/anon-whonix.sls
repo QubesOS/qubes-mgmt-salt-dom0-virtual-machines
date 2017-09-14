@@ -29,21 +29,12 @@ present:
   - label:     red
 prefs:
   - netvm:     sys-whonix
+tags:
+  - add:
+    - anon-vm
 require:
   - pkg:       template-whonix-ws
   - qvm:       sys-whonix
 {%- endload %}
 
 {{ load(defaults) }}
-
-{% load_yaml as template -%}
-name:          whonix-ws
-force:         true
-prefs:
-  - netvm:     sys-whonix
-require:
-  - pkg:       template-whonix-ws
-  - qvm:       sys-whonix
-{%- endload %}
-
-{{ load(template) }}
