@@ -80,6 +80,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.top
 /srv/formulas/base/virtual-machines-formula/qvm/vault.sls
 /srv/formulas/base/virtual-machines-formula/qvm/vault.top
+/srv/formulas/base/virtual-machines-formula/qvm/whonix-ws-dvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/work.sls
 /srv/formulas/base/virtual-machines-formula/qvm/work.top
 

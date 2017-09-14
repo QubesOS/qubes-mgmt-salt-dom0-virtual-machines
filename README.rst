@@ -59,6 +59,10 @@ Default Disposable VM template - fedora-25-dvm AppVM
 -------------------
 Whonix workstation AppVM.
 
+``qvm.whonix-ws-dvm``
+-------------------
+Whonix workstation AppVM for Whonix Disposable VMs.
+
 ``qvm.template-fedora-21``
 --------------------------
 Fedora-21 TemplateVM

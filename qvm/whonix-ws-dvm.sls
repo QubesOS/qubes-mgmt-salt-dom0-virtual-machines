@@ -2,34 +2,34 @@
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
 ##
-# qvm.anon-whonix
+# qvm.whonix-ws-dvm
 # ===============
 #
-# Installs 'anon-whonix' AppVM.
+# Installs 'whonix-ws-dvm' AppVM as a base for Disposable VMs.
 #
 # Pillar data will also be merged if available within the ``qvm`` pillar key:
-#   ``qvm:anon-whonix``
+#   ``qvm:whonix-ws-dvm``
 #
 # located in ``/srv/pillar/dom0/qvm/init.sls``
 #
 # Execute:
-#   qubesctl state.sls qvm.anon-whonix dom0
+#   qubesctl state.sls qvm.whonix-ws-dvm dom0
 ##
 
 include:
   - qvm.template-whonix-ws
   - qvm.sys-whonix
-  - qvm.whonix-ws-dvm
 
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
-name:          anon-whonix
+name:          whonix-ws-dvm
 present:
   - template:  whonix-ws
   - label:     red
 prefs:
   - netvm:     sys-whonix
+  - template-for-dispvms: true
   - default-dispvm: whonix-ws-dvm
 tags:
   - add:
@@ -37,7 +37,6 @@ tags:
 require:
   - pkg:       template-whonix-ws
   - qvm:       sys-whonix
-  - qvm:       whonix-ws-dvm
 {%- endload %}
 
 {{ load(defaults) }}
