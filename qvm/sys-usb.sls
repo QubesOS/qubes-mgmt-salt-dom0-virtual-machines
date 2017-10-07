@@ -30,7 +30,6 @@ present:
     - net
 prefs:
   - netvm:     ""
-  - virt_mode: pv
   - autostart: true
   - pcidevs:   {{ salt['grains.get']('pci_usb_devs', []) }}
   - pci_strictreset: false
