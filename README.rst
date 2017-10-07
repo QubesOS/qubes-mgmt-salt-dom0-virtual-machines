@@ -63,6 +63,10 @@ Whonix workstation AppVM.
 -------------------
 Whonix workstation AppVM for Whonix Disposable VMs.
 
+``qvm.updates-via-whonix``
+-------------------
+Setup UpdatesProxy to route all templates updates through Tor (sys-whonix here).
+
 ``qvm.template-fedora-21``
 --------------------------
 Fedora-21 TemplateVM
