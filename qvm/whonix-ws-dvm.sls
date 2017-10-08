@@ -22,6 +22,8 @@ include:
 
 {%- from "qvm/template.jinja" import load -%}
 
+{% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
+
 {% load_yaml as defaults -%}
 name:          whonix-ws-dvm
 present:
@@ -34,9 +36,18 @@ prefs:
 tags:
   - add:
     - anon-vm
+features:
+  - enable:
+    - appmenus-dispvm
 require:
   - pkg:       template-whonix-ws
   - qvm:       sys-whonix
 {%- endload %}
+
+qvm-appmenus --update whonix-ws-dvm:
+  cmd.run:
+    - runas: {{ gui_user }}
+    - onchanges:
+      - qvm:  whonix-ws-dvm
 
 {{ load(defaults) }}
