@@ -2,7 +2,7 @@
 
 package-name:       qubes-mgmt-salt-dom0-virtual-machines
 saltenv:            base
-version:            4.0.5
+version:            4.0.6
 release:            1
 name:               virtual-machines-formula
 top_level_dir:      qvm
