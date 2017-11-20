@@ -31,6 +31,8 @@ prefs:
 service:
   - enable:
     - clocksync
+  - disable:
+    - meminfo-writer
 {%- endload %}
 
 {{ load(defaults) }}

@@ -36,6 +36,7 @@ prefs:
 service:
   - disable:
     - network-manager
+    - meminfo-writer
 {%- endload %}
 
 {{ load(defaults) }}
