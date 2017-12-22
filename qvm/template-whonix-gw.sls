@@ -16,9 +16,15 @@ template-whonix-gw:
     - name:     qubes-template-whonix-gw
     - fromrepo: qubes-templates-community
 
+whonix-gw-tag:
+  qvm.tags:
+    - name: whonix-gw
+    - present:
+      - whonix-updatevm
+
 whonix-gw-update-policy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
     - text:
-      - whonix-gw $default allow,target=sys-whonix
-      - whonix-gw $anyvm deny
+      - $tag:whonix-updatevm $default allow,target=sys-whonix
+      - $tag:whonix-updatevm $anyvm deny

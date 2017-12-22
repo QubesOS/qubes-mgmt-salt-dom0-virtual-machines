@@ -16,12 +16,18 @@ template-whonix-ws:
     - name:     qubes-template-whonix-ws
     - fromrepo: qubes-templates-community
 
+whonix-ws-tag:
+  qvm.tags:
+    - name: whonix-ws
+    - present:
+      - whonix-updatevm
+
 whonix-ws-update-policy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
     - text:
-      - whonix-ws $default allow,target=sys-whonix
-      - whonix-ws $anyvm deny
+      - $tag:whonix-updatevm $default allow,target=sys-whonix
+      - $tag:whonix-updatevm $anyvm deny
 
 # this is for whonix-ws based VMs
 whonix-get-date-policy:
