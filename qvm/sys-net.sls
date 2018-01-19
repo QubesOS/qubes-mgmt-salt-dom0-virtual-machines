@@ -24,6 +24,7 @@ present:
   - label:     red
 prefs:
   - netvm:     ""
+  - virt_mode: hvm
   - autostart: true
   - provides-network: true
   - memory: 400
