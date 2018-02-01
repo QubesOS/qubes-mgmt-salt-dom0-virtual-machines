@@ -27,6 +27,13 @@ System UsbVM
 ---------------
 System UsbVM bundled into NetVM. Do not enable together with ``qvm.sys-usb``.
 
+``qvm.usb-keyboard``
+--------------------
+
+Enable USB keyboard together with UsbVM, including for early system boot (for
+LUKS passhprase). This state implicitly create UsbVM (``qvm.sys-usb``
+state), if not already done.
+
 ``qvm.sys-firewall``
 --------------------
 System firewall ProxyVM

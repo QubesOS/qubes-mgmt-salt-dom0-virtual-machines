@@ -80,6 +80,8 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.top
 /srv/formulas/base/virtual-machines-formula/qvm/updates-via-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/updates-via-whonix.top
+/srv/formulas/base/virtual-machines-formula/qvm/usb-keyboard.sls
+/srv/formulas/base/virtual-machines-formula/qvm/usb-keyboard.top
 /srv/formulas/base/virtual-machines-formula/qvm/vault.sls
 /srv/formulas/base/virtual-machines-formula/qvm/vault.top
 /srv/formulas/base/virtual-machines-formula/qvm/whonix-ws-dvm.sls
