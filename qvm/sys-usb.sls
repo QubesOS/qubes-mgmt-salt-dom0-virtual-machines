@@ -19,7 +19,10 @@
 include:
   - qvm.hide-usb-from-dom0
 
-{%- from "qvm/template.jinja" import load -%}
+{% from "qvm/template.jinja" import load -%}
+
+# Avoid duplicated states
+{% if salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') != salt['pillar.get']('qvm:sys-net:name', 'sys-net') %}
 
 {% load_yaml as defaults -%}
 name:          sys-usb
@@ -42,6 +45,20 @@ service:
 
 {{ load(defaults) }}
 
+{% else %}
+
+{% set vmname = salt['pillar.get']('qvm:sys-net:name', 'sys-net') %}
+
+{{ vmname }}-usb:
+  qvm.prefs:
+    - name: {{ vmname }}
+    - pcidevs: {{ salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', []) }}
+    - pci_strictreset: False
+    - require:
+      - sls: qvm.sys-net
+
+{% endif %}
+
 qubes-input-proxy:
   pkg.installed: []
 
@@ -49,6 +66,6 @@ qubes-input-proxy:
 sys-usb-input-proxy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.InputMouse
-    - text: sys-usb dom0 allow,user=root
+    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
     - require:
       - pkg:       qubes-input-proxy

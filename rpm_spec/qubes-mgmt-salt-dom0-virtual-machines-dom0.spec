@@ -88,6 +88,8 @@ fi
 
 %attr(750, root, root) %dir /srv/pillar/base/qvm
 %config(noreplace) /srv/pillar/base/qvm/init.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-net-as-usbvm.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-net-as-usbvm.top
 /srv/pillar/base/qvm/init.top
 
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf
