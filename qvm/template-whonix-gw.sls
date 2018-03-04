@@ -17,10 +17,14 @@ template-whonix-gw:
     - fromrepo: qubes-templates-community
 
 whonix-gw-tag:
-  qvm.tags:
+  qvm.vm:
     - name: whonix-gw
-    - present:
-      - whonix-updatevm
+    - tags:
+      - present:
+        - whonix-updatevm
+    - features:
+      - enable:
+        - whonix-gw
 
 whonix-gw-update-policy:
   file.prepend:
