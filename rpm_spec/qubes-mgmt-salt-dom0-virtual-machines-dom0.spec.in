@@ -1,7 +1,6 @@
-%{!?version: %define version %(cat version)}
 
 Name:      qubes-mgmt-salt-dom0-virtual-machines
-Version:   %{version}
+Version:   @VERSION@
 Release:   1%{?dist}
 Summary:   Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
 License:   GPL 2.0
@@ -12,18 +11,15 @@ BuildArch: noarch
 Requires:  qubes-mgmt-salt
 Requires:  qubes-mgmt-salt-dom0
 
-%define _builddir %(pwd)
+
+Source0: %{name}-%{version}.tar.gz
 
 %description
 Downloads, installs and configures template as well as creating and configuring virtual-machine AppVM's.
 Uses pillar data to define default VM names and configuration details.
 
 %prep
-# we operate on the current directory, so no need to unpack anything
-# symlink is to generate useful debuginfo packages
-rm -f %{name}-%{version}
-ln -sf . %{name}-%{version}
-%setup -T -D
+%setup -q
 
 %build
 
