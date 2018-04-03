@@ -93,3 +93,4 @@ fi
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf
 
 %changelog
+@CHANGELOG@
