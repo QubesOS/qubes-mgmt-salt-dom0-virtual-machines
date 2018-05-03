@@ -11,20 +11,22 @@
 #   qubesctl state.sls qvm.template-whonix-ws dom0
 ##
 
-template-whonix-ws:
+{%- from "qvm/whonix.jinja" import whonix with context -%}
+
+template-whonix-ws-{{ whonix.whonix_version }}:
   pkg.installed:
-    - name:     qubes-template-whonix-ws
+    - name:     qubes-template-whonix-ws-{{ whonix.whonix_version }}
     - fromrepo: qubes-templates-community
 
 whonix-ws-tag:
   qvm.vm:
-    - name: whonix-ws
+    - name: whonix-ws-{{ whonix.whonix_version }}
     - tags:
       - present:
         - whonix-updatevm
     - features:
       - enable:
-        - whonix-ws
+        - whonix-ws-{{ whonix.whonix_version }}
 
 whonix-ws-update-policy:
   file.prepend:

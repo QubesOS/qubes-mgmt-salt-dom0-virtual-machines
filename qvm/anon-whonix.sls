@@ -21,12 +21,13 @@ include:
   - qvm.sys-whonix
   - qvm.whonix-ws-dvm
 
+{%- from "qvm/whonix.jinja" import whonix with context -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
 name:          anon-whonix
 present:
-  - template:  whonix-ws
+  - template:  whonix-ws-{{ whonix.whonix_version }}
   - label:     red
 prefs:
   - netvm:     sys-whonix
@@ -35,9 +36,9 @@ tags:
   - add:
     - anon-vm
 require:
-  - pkg:       template-whonix-ws
+  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
-  - qvm:       whonix-ws-dvm
+  - qvm:       whonix-ws-{{ whonix.whonix_version }}-dvm
 {%- endload %}
 
 {{ load(defaults) }}
