@@ -4,4 +4,4 @@ language: generic
 install: git clone https://github.com/qubesos/qubes-builder ~/qubes-builder
 script: ~/qubes-builder/scripts/travis-build
 env:
- - DIST_DOM0=fc20 USE_QUBES_REPO_VERSION=3.1
+ - DIST_DOM0=fc25 USE_QUBES_REPO_VERSION=4.0
