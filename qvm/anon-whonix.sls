@@ -21,7 +21,7 @@ include:
   - qvm.sys-whonix
   - qvm.whonix-ws-dvm
 
-{%- from "qvm/whonix.jinja" import whonix with context -%}
+{%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}

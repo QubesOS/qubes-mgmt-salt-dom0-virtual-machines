@@ -20,7 +20,7 @@ include:
   - qvm.template-whonix-ws
   - qvm.sys-whonix
 
-{%- from "qvm/whonix.jinja" import whonix with context -%}
+{%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}

@@ -20,7 +20,7 @@ include:
   - qvm.template-whonix-gw
   - qvm.sys-firewall
 
-{%- from "qvm/whonix.jinja" import whonix with context -%}
+{%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
