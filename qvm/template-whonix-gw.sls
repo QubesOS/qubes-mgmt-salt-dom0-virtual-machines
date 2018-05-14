@@ -26,7 +26,7 @@ whonix-gw-tag:
         - whonix-updatevm
     - features:
       - enable:
-        - whonix-gw-{{ whonix.whonix_version }}
+        - whonix-gw
 
 whonix-gw-update-policy:
   file.prepend:

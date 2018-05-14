@@ -26,7 +26,7 @@ whonix-ws-tag:
         - whonix-updatevm
     - features:
       - enable:
-        - whonix-ws-{{ whonix.whonix_version }}
+        - whonix-ws
 
 whonix-ws-update-policy:
   file.prepend:
