@@ -31,7 +31,7 @@ present:
   - label:     red
 prefs:
   - netvm:     sys-whonix
-  - default-dispvm: whonix-ws-dvm
+  - default-dispvm: whonix-ws-{{ whonix.whonix_version }}-dvm
 tags:
   - add:
     - anon-vm
