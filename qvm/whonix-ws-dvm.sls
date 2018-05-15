@@ -20,19 +20,20 @@ include:
   - qvm.template-whonix-ws
   - qvm.sys-whonix
 
+{%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
 
 {% load_yaml as defaults -%}
-name:          whonix-ws-dvm
+name:          whonix-ws-{{ whonix.whonix_version }}-dvm
 present:
-  - template:  whonix-ws
+  - template:  whonix-ws-{{ whonix.whonix_version }}
   - label:     red
 prefs:
   - netvm:     sys-whonix
   - template-for-dispvms: true
-  - default-dispvm: whonix-ws-dvm
+  - default-dispvm: whonix-ws-{{ whonix.whonix_version }}-dvm
 tags:
   - add:
     - anon-vm
@@ -40,7 +41,7 @@ features:
   - enable:
     - appmenus-dispvm
 require:
-  - pkg:       template-whonix-ws
+  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
 {%- endload %}
 
@@ -48,6 +49,6 @@ qvm-appmenus --update whonix-ws-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - onchanges:
-      - qvm:  whonix-ws-dvm
+      - qvm:  whonix-ws-{{ whonix.whonix_version }}-dvm
 
 {{ load(defaults) }}
