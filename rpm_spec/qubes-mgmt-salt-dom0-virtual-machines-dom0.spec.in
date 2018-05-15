@@ -10,6 +10,7 @@ Group:     System administration tools
 BuildArch: noarch
 Requires:  qubes-mgmt-salt
 Requires:  qubes-mgmt-salt-dom0
+Requires:  qubes-core-admin-addon-whonix
 
 
 Source0: %{name}-%{version}.tar.gz
