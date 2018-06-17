@@ -45,9 +45,9 @@ fi
 
 %files
 %defattr(-,root,root)
-%doc LICENSE README.rst
+%doc LICENSE README.md
 %attr(750, root, root) %dir /srv/formulas/base/virtual-machines-formula
-/srv/formulas/base/virtual-machines-formula/README.rst
+/srv/formulas/base/virtual-machines-formula/README.md
 /srv/formulas/base/virtual-machines-formula/LICENSE
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.top
