@@ -5,7 +5,7 @@
 # qvm.default-dispvm
 # ========
 #
-# Installs default DispVM template: fedora-26-dvm AppVM.
+# Installs default DispVM template: fedora-28-dvm AppVM.
 #
 # Execute:
 #   qubesctl state.sls qvm.default-dispvm dom0
@@ -13,7 +13,7 @@
 
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
 
-fedora-26-dvm:
+fedora-28-dvm:
   qvm.vm:
    - present:
      - label: red
@@ -24,8 +24,8 @@ fedora-26-dvm:
      - enable:
        - appmenus-dispvm
 
-echo -e 'firefox.desktop\nxterm.desktop' | qvm-appmenus --set-whitelist=- --update fedora-26-dvm:
+echo -e 'firefox.desktop\nxterm.desktop' | qvm-appmenus --set-whitelist=- --update fedora-28-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - requires:
-      - qvm: fedora-26-dvm
+      - qvm: fedora-28-dvm
