@@ -16,7 +16,7 @@
 template-whonix-ws-{{ whonix.whonix_version }}:
   pkg.installed:
     - name:     qubes-template-whonix-ws-{{ whonix.whonix_version }}
-    - fromrepo: qubes-templates-community
+    - fromrepo: {{ whonix.whonix_repo }}
 
 whonix-ws-tag:
   qvm.vm:
