@@ -45,7 +45,7 @@ require:
   - qvm:       sys-whonix
 {%- endload %}
 
-qvm-appmenus --update whonix-ws-dvm:
+qvm-appmenus --update whonix-ws-{{ whonix.whonix_version }}-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - onchanges:
