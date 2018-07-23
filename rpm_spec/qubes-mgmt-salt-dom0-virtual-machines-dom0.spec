@@ -83,6 +83,8 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/work.top
 
 %attr(750, root, root) %dir /srv/pillar/base/qvm
+%config(noreplace) /srv/pillar/base/qvm/whonix-testing.sls
+%config(noreplace) /srv/pillar/base/qvm/whonix-testing.top
 %config(noreplace) /srv/pillar/base/qvm/init.sls
 /srv/pillar/base/qvm/init.top
 
