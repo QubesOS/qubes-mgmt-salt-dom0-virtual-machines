@@ -38,7 +38,7 @@ require:
 {{ load(defaults) }}
 
 {% load_yaml as template -%}
-name:          whonix-ws
+name:          whonix-ws-{{ whonix.whonix_version }}
 force:         true
 prefs:
   - netvm:     sys-whonix
