@@ -11,7 +11,9 @@
 #   qubesctl state.sls qvm.template-whonix-gw dom0
 ##
 
-template-whonix-gw:
+{% import "qvm/whonix.jinja" as whonix -%}
+
+template-whonix-gw-{{ whonix.whonix_version }}:
   pkg.installed:
-    - name:     qubes-template-whonix-gw
-    - fromrepo: qubes-templates-community
+    - name:     qubes-template-whonix-gw-{{ whonix.whonix_version }}
+    - fromrepo: {{ whonix.whonix_repo }}

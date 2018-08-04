@@ -77,11 +77,14 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.sls
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.top
 /srv/formulas/base/virtual-machines-formula/qvm/vault.sls
+/srv/formulas/base/virtual-machines-formula/qvm/whonix.jinja
 /srv/formulas/base/virtual-machines-formula/qvm/vault.top
 /srv/formulas/base/virtual-machines-formula/qvm/work.sls
 /srv/formulas/base/virtual-machines-formula/qvm/work.top
 
 %attr(750, root, root) %dir /srv/pillar/base/qvm
+%config(noreplace) /srv/pillar/base/qvm/whonix-testing.sls
+%config(noreplace) /srv/pillar/base/qvm/whonix-testing.top
 %config(noreplace) /srv/pillar/base/qvm/init.sls
 /srv/pillar/base/qvm/init.top
 

@@ -20,29 +20,30 @@ include:
   - qvm.template-whonix-ws
   - qvm.sys-whonix
 
+{%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
 name:          anon-whonix
 present:
-  - template:  whonix-ws
+  - template:  whonix-ws-{{ whonix.whonix_version }}
   - label:     red
 prefs:
   - netvm:     sys-whonix
 require:
-  - pkg:       template-whonix-ws
+  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
 {%- endload %}
 
 {{ load(defaults) }}
 
 {% load_yaml as template -%}
-name:          whonix-ws
+name:          whonix-ws-{{ whonix.whonix_version }}
 force:         true
 prefs:
   - netvm:     sys-whonix
 require:
-  - pkg:       template-whonix-ws
+  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
 {%- endload %}
 
