@@ -5,7 +5,8 @@
 # qvm.updates-via-whonix
 # ===============
 #
-# Setup UpdatesProxy to always use sys-whonix.
+# Upgrade all TemplateVMs through sys-whonix.
+# Setup UpdatesProxy to always use sys-whonix for all TemplateVMs.
 #
 # Execute:
 #   qubesctl state.sls qvm.updates-via-whonix dom0
