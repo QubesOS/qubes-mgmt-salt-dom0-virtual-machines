@@ -12,8 +12,9 @@
 ##
 
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
+{% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
 
-fedora-28-dvm:
+{{default_template}}-dvm:
   qvm.vm:
    - present:
      - label: red
@@ -24,8 +25,8 @@ fedora-28-dvm:
      - enable:
        - appmenus-dispvm
 
-echo -e 'firefox.desktop\nxterm.desktop' | qvm-appmenus --set-whitelist=- --update fedora-28-dvm:
+echo -e 'firefox.desktop\nxterm.desktop' | qvm-appmenus --set-whitelist=- --update {{default_template}}-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - requires:
-      - qvm: fedora-28-dvm
+      - qvm: {{default_template}}-dvm
