@@ -11,7 +11,9 @@ BuildArch: noarch
 Requires:  qubes-mgmt-salt
 Requires:  qubes-mgmt-salt-dom0
 Requires:  qubes-core-admin-addon-whonix
-
+# do not require qubes-core-dom0 directly, but if installed, make sure it's the
+# right version
+Conflicts: qubes-core-dom0 < 4.0.35
 
 Source0: %{name}-%{version}.tar.gz
 
@@ -27,6 +29,12 @@ Uses pillar data to define default VM names and configuration details.
 %install
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} SYSCONFDIR=%{_sysconfdir}
 
+%pre
+
+if [ $1 -ge 2 ] && ! [ -e /srv/formulas/base/virtual-machines-formula/qvm/default-mgmt-dvm.sls ]; then
+    touch /var/run/%{name}-default-mgmt-dvm-firstinstall
+fi
+
 %post
 # Enable Pillar States
 qubesctl top.enable qvm pillar=true -l quiet --out quiet > /dev/null || true
@@ -41,6 +49,14 @@ done
 
 if [ -r /srv/pillar/_tops/dom0/qvm.top ]; then
     rm -f /srv/pillar/_tops/dom0/qvm.top
+fi
+
+%posttrans
+
+if [ -e /var/run/%{name}-default-mgmt-dvm-firstinstall ]; then
+    # create default-mgmt-dvm on update, see QSB#45
+    qubesctl state.sls qvm.default-mgmt-dvm
+    rm /var/run/%{name}-default-mgmt-dvm-firstinstall
 fi
 
 %files
