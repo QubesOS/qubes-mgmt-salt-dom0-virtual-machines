@@ -53,6 +53,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.top
+/srv/formulas/base/virtual-machines-formula/qvm/default-mgmt-dvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/hide-usb-from-dom0.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.top

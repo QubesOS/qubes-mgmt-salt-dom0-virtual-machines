@@ -5,3 +5,4 @@ base:
   dom0:
     - match: nodegroup
     - qvm.default-dispvm
+    - qvm.default-mgmt-dvm
