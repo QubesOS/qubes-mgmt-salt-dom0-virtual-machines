@@ -35,7 +35,7 @@ prefs:
   - netvm:     ""
   - virt_mode: hvm
   - autostart: true
-  - pcidevs:   {{ salt['grains.get']('pci_usb_devs', []) }}
+  - pcidevs:   {{ salt['grains.get']('pci_usb_devs', [])|yaml }}
   - pci_strictreset: false
 service:
   - disable:

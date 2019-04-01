@@ -28,7 +28,7 @@ prefs:
   - autostart: true
   - provides-network: true
   - memory: 400
-  - pcidevs:   {{ salt['grains.get']('pci_net_devs', []) }}
+  - pcidevs:   {{ salt['grains.get']('pci_net_devs', [])|yaml }}
 service:
   - enable:
     - clocksync
