@@ -54,7 +54,7 @@
   {%- if caller is defined %}
     {{ caller(state) }}
   {%- else %}
-    {{- state|yaml(False)|indent(2) }}
+    {{- state|yaml(False)|indent(2, blank=True) }}
   {%- endif %}
 {%- endmacro %}
 
