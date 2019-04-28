@@ -52,7 +52,7 @@ service:
 {{ vmname }}-usb:
   qvm.prefs:
     - name: {{ vmname }}
-    - pcidevs: {{ salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', []) }}
+    - pcidevs: {{ (salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', []))|yaml }}
     - pci_strictreset: False
     - require:
       - sls: qvm.sys-net
