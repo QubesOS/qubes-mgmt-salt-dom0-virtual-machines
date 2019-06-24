@@ -81,10 +81,6 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-usb.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.top
-/srv/formulas/base/virtual-machines-formula/qvm/template-debian-7.sls
-/srv/formulas/base/virtual-machines-formula/qvm/template-debian-8.sls
-/srv/formulas/base/virtual-machines-formula/qvm/template-fedora-21-minimal.sls
-/srv/formulas/base/virtual-machines-formula/qvm/template-fedora-21.sls
 /srv/formulas/base/virtual-machines-formula/qvm/template.jinja
 /srv/formulas/base/virtual-machines-formula/qvm/template-whonix-gw.sls
 /srv/formulas/base/virtual-machines-formula/qvm/template-whonix-ws.sls
