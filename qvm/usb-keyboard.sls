@@ -30,28 +30,30 @@ sys-usb-input-proxy-keyboard:
       - pkg:       qubes-input-proxy
 
 
-{% if grains['boot_mode'] == 'efi' %}
-
 {% set uefi_xen_cfg = '/boot/efi/EFI/qubes/xen.cfg' %}
+{% if grains['boot_mode'] == 'efi' %}
+{% set grub_cfg = '/boot/efi/EFI/qubes/grub.cfg' %}
+{% else %}
+{% set grub_cfg = '/boot/grub2/grub.cfg' %}
+{% endif %}
 
 unhide-usb-from-dom0-uefi:
   file.replace:
     - name: {{ uefi_xen_cfg }}
     - pattern: ' rd.qubes.hide_all_usb'
     - repl: ''
+    - onlyif: test -f {{ uefi_xen_cfg }}
 
-{% else %}
-
-unhide-usb-from-dom0-legacy:
+unhide-usb-from-dom0-grub:
   file.replace:
     - name: /etc/default/grub
     - pattern: ' rd.qubes.hide_all_usb'
     - repl: ''
+    - onlyif: test -f /etc/default/grub
 
 grub-regenerate-unhide:
   cmd.run:
-    - name: grub2-mkconfig -o /boot/grub2/grub.cfg
+    - name: grub2-mkconfig -o {{grub_cfg}}
     - onchanges:
-      - file: unhide-usb-from-dom0-legacy
-
-{% endif %}
+      - file: unhide-usb-from-dom0-grub
+    - onlyif: test -f {{grub_cfg}}
