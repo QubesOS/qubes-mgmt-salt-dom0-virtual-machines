@@ -73,6 +73,10 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/hide-usb-from-dom0.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.top
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-template.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-net.sls
