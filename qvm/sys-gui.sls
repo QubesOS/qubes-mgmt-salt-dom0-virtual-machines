@@ -52,12 +52,14 @@ sys-gui-rpc:
   file.managed:
     - name: /etc/qubes/policy.d/30-sys-gui.policy
     - contents: |
-        qubes.SetMonitorLayout              *   sys-gui             @tag:guivm-sys-gui  allow
-        qubes.GetImageRGBA                  *   sys-gui             @tag:guivm-sys-gui  allow
-        qubes.SyncAppMenus                  *   @tag:guivm-sys-gui  dom0                allow   target=sys-gui
-        qubes.StartApp                      *   sys-gui             @tag:guivm-sys-gui  allow
-        qubes.WaitForSession                *   sys-gui             @tag:guivm-sys-gui  allow
-        qubes.GetAppmenus                   *   sys-gui             @tag:guivm-sys-gui  allow
+        qubes.GetImageRGBA                  *   sys-gui             @tag:guivm-sys-gui          allow
+        qubes.GetAppmenus                   *   sys-gui             @tag:guivm-sys-gui          allow
+        qubes.SetMonitorLayout              *   sys-gui             @tag:guivm-sys-gui          allow
+        qubes.StartApp                      *   sys-gui             @tag:guivm-sys-gui          allow
+        qubes.StartApp                      *   sys-gui             @dispvm:@tag:guivm-sys-gui  allow
+        qubes.SyncAppMenus                  *   @tag:guivm-sys-gui  dom0                        allow   target=sys-gui
+        qubes.WaitForSession                *   sys-gui             @tag:guivm-sys-gui          allow
+
 
 # GuiVM (AdminVM) with local 'rwx' permissions
 /etc/qubes-rpc/policy/include/admin-local-rwx:
