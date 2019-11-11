@@ -33,6 +33,13 @@ dom0-keyboard-layout:
   cmd.run:
     - name: qvm-features dom0 keyboard-layout {{ salt['keyboard.get_x']() }}
 
+# Set 'sys-gui' keyboard-layout feature
+sys-gui-keyboard-layout:
+  cmd.run:
+    - name: qvm-features sys-gui keyboard-layout {{ salt['keyboard.get_x']() }}
+    - require:
+      - qvm: sys-gui
+
 # Set 'sys-gui' as default GuiVM
 sys-gui-default-guivm:
   cmd.run:
@@ -52,11 +59,24 @@ sys-gui-rpc:
         qubes.WaitForSession                *   sys-gui             @tag:guivm-sys-gui  allow
         qubes.GetAppmenus                   *   sys-gui             @tag:guivm-sys-gui  allow
 
-        admin.Events                        *   sys-gui             @adminvm            allow
-        admin.label.Index                   *   sys-gui             @adminvm            allow
-        admin.label.Get                     *   sys-gui             @adminvm            allow
-        admin.vm.List                       *   sys-gui             @adminvm            allow   target=@adminvm
-        admin.vm.List                       *   sys-gui             @tag:guivm-sys-gui  allow   target=dom0
-        admin.vm.property.Get               *   sys-gui             @tag:guivm-sys-gui  allow   target=dom0
-        admin.vm.feature.Get                *   sys-gui             @tag:guivm-sys-gui  allow   target=dom0
-        admin.vm.feature.CheckWithTemplate  *   sys-gui             @tag:guivm-sys-gui  allow   target=dom0
+# GuiVM (AdminVM) with local 'rwx' permissions
+/etc/qubes-rpc/policy/include/admin-local-rwx:
+  file.append:
+    - text: |
+        sys-gui @tag:guivm-sys-gui allow,target=dom0
+
+# GuiVM (AdminVM) with global 'ro' permissions
+{% if salt['pillar.get']('qvm:sys-gui:admin-global-permissions') == 'ro' %}
+/etc/qubes-rpc/policy/include/admin-global-ro:
+  file.append:
+    - text: |
+        sys-gui @adminvm allow,target=dom0
+{% endif %}
+
+{% if salt['pillar.get']('qvm:sys-gui:admin-global-permissions') == 'rwx' %}
+# GuiVM (AdminVM) with global 'rwx' permissions
+/etc/qubes-rpc/policy/include/admin-global-rwx:
+  file.append:
+    - text: |
+        sys-gui @adminvm allow,target=dom0
+{% endif %}

@@ -6,6 +6,8 @@
 # ====================
 ##
 
+# WIP: until we have our group packages included
+# in qubes repository, we explicitely list needed packages
 sys-gui-xfce:
   pkg.installed:
     - pkgs:

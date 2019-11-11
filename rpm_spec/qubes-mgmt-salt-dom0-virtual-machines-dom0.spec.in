@@ -107,6 +107,8 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-net-as-usbvm.top
 %config(noreplace) /srv/pillar/base/qvm/whonix-testing.sls
 %config(noreplace) /srv/pillar/base/qvm/whonix-testing.top
+%config(noreplace) /srv/pillar/base/qvm/sys-gui.top
+%config(noreplace) /srv/pillar/base/qvm/sys-gui.sls
 /srv/pillar/base/qvm/init.top
 
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf
