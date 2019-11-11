@@ -71,6 +71,7 @@ sys-gui-rpc:
   file.append:
     - text: |
         sys-gui @adminvm allow,target=dom0
+        sys-gui @tag:guivm-sys-gui allow,target=dom0
 {% endif %}
 
 {% if salt['pillar.get']('qvm:sys-gui:admin-global-permissions') == 'rwx' %}
@@ -79,4 +80,5 @@ sys-gui-rpc:
   file.append:
     - text: |
         sys-gui @adminvm allow,target=dom0
+        sys-gui @tag:guivm-sys-gui allow,target=dom0
 {% endif %}
