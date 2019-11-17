@@ -77,6 +77,10 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-template.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui.top
+/srv/formulas/base/virtual-machines-formula/qvm/sys-audio.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-audio-template.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-audio-vm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-audio.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-net.sls
