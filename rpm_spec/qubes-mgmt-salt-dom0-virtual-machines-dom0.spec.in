@@ -69,6 +69,10 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.top
+/srv/formulas/base/virtual-machines-formula/qvm/default-guivm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/default-guivm.top
+/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-mgmt-dvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/hide-usb-from-dom0.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.sls
@@ -113,6 +117,8 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/whonix-testing.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.top
 /srv/pillar/base/qvm/init.top
 
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf

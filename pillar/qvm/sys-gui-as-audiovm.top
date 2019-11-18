@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+base:
+  dom0:
+    - match: nodegroup
+    - qvm.sys-gui-as-audiovm
+  sys-gui:
+    - qvm.sys-gui-as-audiovm
+  sys-audio:
+    - qvm.sys-gui-as-audiovm

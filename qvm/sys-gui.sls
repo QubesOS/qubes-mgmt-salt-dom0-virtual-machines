@@ -20,6 +20,7 @@ present:
 prefs:
   - netvm:     ""
   - guivm:     dom0
+  - audiovm:   ""
   - autostart: true
 service:
   - enable:
@@ -37,13 +38,6 @@ dom0-keyboard-layout:
 sys-gui-keyboard-layout:
   cmd.run:
     - name: qvm-features sys-gui keyboard-layout {{ salt['keyboard.get_x']() }}
-    - require:
-      - qvm: sys-gui
-
-# Set 'sys-gui' as default GuiVM
-sys-gui-default-guivm:
-  cmd.run:
-    - name: qubes-prefs default_guivm sys-gui
     - require:
       - qvm: sys-gui
 

@@ -12,11 +12,17 @@
 #   qubesctl top.enable qvm.sys-audio
 #   qubesctl --all state.highstate
 
+{% if salt['pillar.get']('qvm:sys-audio:name', 'sys-audio') != salt['pillar.get']('qvm:sys-gui:name', 'sys-gui') %}
+{% set vmname = salt['pillar.get']('qvm:sys-audio:name', 'sys-audio') %}
+{% else %}
+{% set vmname = salt['pillar.get']('qvm:sys-gui:name', 'sys-gui') %}
+{% endif %}
+
 base:
   dom0:
     - match: nodegroup
     - qvm.sys-audio
   {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-30-xfce') }}:
     - qvm.sys-audio-template
-  sys-audio:
+  {{ vmname }}:
     - qvm.sys-audio-vm
