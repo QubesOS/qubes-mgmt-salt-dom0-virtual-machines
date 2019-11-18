@@ -18,7 +18,6 @@ prefs:
   - virt_mode: hvm
   - autostart: true
   - pcidevs:   {{ salt['grains.get']('pci_audio_devs', [])|yaml }}
-  - pci_strictreset: false
   - template:  {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-30-xfce') }}
 {%- endload %}
 
