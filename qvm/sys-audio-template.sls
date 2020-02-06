@@ -6,7 +6,10 @@
 # ====================
 ##
 
+
+{% if salt['pillar.get']('qvm:sys-audio:name', 'sys-audio') != salt['pillar.get']('qvm:sys-gui:name', 'sys-gui') %}
 sys-audio-xfce:
   pkg.installed:
     - pkgs:
       - volumeicon
+{% endif %}
