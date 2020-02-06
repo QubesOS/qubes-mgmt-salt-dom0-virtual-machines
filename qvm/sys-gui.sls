@@ -29,6 +29,14 @@ service:
 
 {{ load(defaults) }}
 
+# dom0 is GuiVM for sys-gui
+dom0-guivm-gui-agent:
+  qvm.vm:
+    - name: dom0
+    - service:
+      - enable:
+        - guivm-gui-agent
+
 # Set 'dom0' keyboard-layout feature
 dom0-keyboard-layout:
   cmd.run:
