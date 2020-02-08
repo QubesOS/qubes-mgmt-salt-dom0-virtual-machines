@@ -60,8 +60,8 @@ sys-audio-rpc:
 
 {% endif %}
 
-# AudioVM (AdminVM) with local 'rwx' permissions
-/etc/qubes-rpc/policy/include/admin-local-rwx:
+# AudioVM (AdminVM) with local 'ro' permissions
+/etc/qubes-rpc/policy/include/admin-local-ro:
   file.append:
     - text: |
         {{ vmname }} @tag:audiovm-{{ vmname }} allow,target=dom0
