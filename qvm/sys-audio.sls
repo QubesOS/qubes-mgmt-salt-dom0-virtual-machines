@@ -38,11 +38,18 @@ sys-audio-rpc:
   file.managed:
     - name: /etc/qubes/policy.d/30-sys-audio.policy
     - contents: |
-        admin.Events            *   sys-audio     @adminvm                allow
-        admin.vm.List           *   sys-audio     @adminvm                allow
-        admin.vm.List           *   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
-        admin.vm.property.Get   *   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
-        admin.vm.feature.Get    *   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.Events          *   sys-audio     sys-audio               allow
+        admin.Events          *   sys-audio     @adminvm                allow
+        admin.Events          *   sys-audio     @tag:audiovm-sys-audio  allow
+        admin.vm.CurrentState *   sys-audio     sys-audio               allow   target=dom0
+        admin.vm.CurrentState *   sys-audio     @adminvm                allow
+        admin.vm.CurrentState *   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.List         *   sys-audio     sys-audio               allow
+        admin.vm.List         *   sys-audio     @adminvm                allow
+        admin.vm.List         *   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.property.Get               +audiovm sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.property.Get               +xid     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.feature.CheckWithTemplate  +audio   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
 
 {% else %}
 
@@ -58,10 +65,11 @@ sys-audio-rpc:
 #    - require:
 #      - sls: qvm.sys-gui
 
-{% endif %}
-
 # AudioVM (AdminVM) with local 'ro' permissions
 /etc/qubes-rpc/policy/include/admin-local-ro:
   file.append:
     - text: |
         {{ vmname }} @tag:audiovm-{{ vmname }} allow,target=dom0
+        {{ vmname }} {{ vmname }} allow,target=dom0
+
+{% endif %}
