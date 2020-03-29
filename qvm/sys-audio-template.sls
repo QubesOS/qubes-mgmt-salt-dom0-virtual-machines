@@ -10,6 +10,7 @@
 sys-audio-xfce:
   pkg.installed:
     - pkgs:
+      - qubes-core-admin-client
       - qubes-audio-daemon
 {% if salt['pillar.get']('qvm:sys-audio:name', 'sys-audio') != salt['pillar.get']('qvm:sys-gui:name', 'sys-gui') %}
       - volumeicon
