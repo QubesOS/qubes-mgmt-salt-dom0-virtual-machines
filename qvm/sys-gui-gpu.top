@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+# Installs 'sys-gui' GuiVM.
+#
+# Pillar data will also be merged if available within the ``qvm`` pillar key:
+#   ``qvm:sys-gui``
+#
+# located in ``/srv/pillar/dom0/qvm/init.sls``
+#
+# Execute:
+#   qubesctl top.enable qvm.sys-gui
+#   qubesctl --all state.highstate
+
+base:
+  dom0:
+    - match: nodegroup
+    - qvm.sys-gui-gpu
+  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-30-xfce') }}:
+    - qvm.sys-gui-template
+  sys-gui-gpu:
+    - qvm.sys-gui-vm
+    - qvm.sys-gui-gpu-vm

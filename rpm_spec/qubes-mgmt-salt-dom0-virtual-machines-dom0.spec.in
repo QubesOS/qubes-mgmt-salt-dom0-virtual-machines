@@ -81,6 +81,12 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-template.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui.top
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu-vm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu-attach-gpu.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu-detach-gpu.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu.top
+/srv/formulas/base/virtual-machines-formula/qvm/template-gui.jinja
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio-template.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio-vm.sls
@@ -120,6 +126,8 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-gui.sls
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.sls
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.top
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.top
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.sls
 /srv/pillar/base/qvm/init.top
 
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf

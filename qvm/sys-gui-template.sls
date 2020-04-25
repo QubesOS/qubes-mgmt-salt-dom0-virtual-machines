@@ -55,3 +55,21 @@ sys-gui-xfce:
       - xfconf
       - xfdesktop
       - xfwm4
+
+/etc/systemd/system/lightdm.service.d/qubes.conf:
+  file.managed:
+    - makedirs: True
+    - contents: |
+        [Unit]
+        ConditionPathExists=/var/run/qubes-service/lightdm
+        [Install]
+        WantedBy=multi-user.target
+
+sys-gui-template-lightdm:
+  cmd.run:
+    - name: systemctl enable lightdm
+
+sys-gui-template-lock-root:
+  user.present:
+    - name: root
+    - password: '!!'
