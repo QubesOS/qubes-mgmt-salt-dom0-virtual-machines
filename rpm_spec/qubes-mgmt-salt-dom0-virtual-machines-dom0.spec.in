@@ -94,6 +94,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.top
 /srv/formulas/base/virtual-machines-formula/qvm/template.jinja
+/srv/formulas/base/virtual-machines-formula/qvm/template-gui.jinja
 /srv/formulas/base/virtual-machines-formula/qvm/template-whonix-gw.sls
 /srv/formulas/base/virtual-machines-formula/qvm/template-whonix-ws.sls
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.sls

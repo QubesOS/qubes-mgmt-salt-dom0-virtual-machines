@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+##
+# GUI Virtual Machine Common State Template
+# ==============================
+##
+
+{% macro gui_common(vmname) -%}
+# Setup Qubes RPC policy
+{{ vmname }}-rpc:
+  file.managed:
+    - name: /etc/qubes/policy.d/30-gui-{{ vmname }}.policy
+    - contents: |
+        qubes.GetImageRGBA                  *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.SetMonitorLayout              *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.StartApp                      *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.StartApp                      *   {{ vmname }}             @dispvm:@tag:guivm-{{ vmname }}  allow
+        qubes.SyncAppMenus                  *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
+        qubes.WaitForSession                *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+
+# GuiVM (AdminVM) with local 'rwx' permissions
+{{ vmname }}-admin-local-rwx:
+  file.append:
+    - name: /etc/qubes-rpc/policy/include/admin-local-rwx
+    - text: |
+        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
+        {{ vmname }} {{ vmname }} allow,target=dom0
+
+# GuiVM (AdminVM) with global 'ro' permissions
+{% if salt['pillar.get']('qvm:' + vmname + ':admin-global-permissions') == 'ro' %}
+{{ vmname }}-admin-global-ro:
+  file.append:
+    - name: /etc/qubes-rpc/policy/include/admin-global-ro
+    - text: |
+        {{ vmname }} @adminvm allow,target=dom0
+        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
+        {{ vmname }} {{ vmname }} allow,target=dom0
+{% endif %}
+
+{% if salt['pillar.get']('qvm:' + vmname + ':admin-global-permissions') == 'rwx' %}
+# GuiVM (AdminVM) with global 'rwx' permissions
+{{ vmname }}-admin-global-rwx:
+  file.append:
+    - name: /etc/qubes-rpc/policy/include/admin-global-rwx
+    - text: |
+        {{ vmname }} @adminvm allow,target=dom0
+        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
+        {{ vmname }} {{ vmname }} allow,target=dom0
+{% endif %}
+{%- endmacro %}
+
