@@ -14,11 +14,28 @@
     - contents: |
         qubes.GetImageRGBA                  *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        # TODO: limit to templates related to @tag:guivm-{{ vmname }} only
+        qubes.GetAppmenus                   *   {{ vmname }}             @type:TemplateVM                 allow
         qubes.SetMonitorLayout              *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.StartApp                      *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.StartApp                      *   {{ vmname }}             @dispvm:@tag:guivm-{{ vmname }}  allow
         qubes.SyncAppMenus                  *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
+        qubes.WindowIconUpdater             *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
         qubes.WaitForSession                *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+
+        # Parts of Admin API necessary for GUI-related tools to work
+        admin.vm.List                       *   {{ vmname }}             dom0                             allow
+        admin.vm.List                       *   {{ vmname }}             @tag:guivm-sys-gui               allow target=dom0
+        admin.Events                        *   {{ vmname }}             dom0                             allow
+        admin.Events                        *   {{ vmname }}             @tag:guivm-sys-gui               allow target=dom0
+        admin.label.Get                     *   {{ vmname }}             dom0                             allow
+        admin.label.Index                   *   {{ vmname }}             dom0                             allow
+        admin.vm.property.Get               *   {{ vmname }}             dom0                             allow
+        admin.vm.volume.List                *   {{ vmname }}             dom0                             allow
+        admin.vm.device.pci.Available       *   {{ vmname }}             dom0                             allow
+        admin.vm.feature.Get                +internal {{ vmname }}             dom0                             allow
+        # TODO: find a way to avoid this one (ram, cpu usage)
+        admin.vm.CurrentState               *   {{ vmname }}             dom0                             allow
 
 # GuiVM (AdminVM) with local 'rwx' permissions
 {{ vmname }}-admin-local-rwx:
