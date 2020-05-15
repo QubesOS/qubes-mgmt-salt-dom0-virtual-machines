@@ -23,31 +23,31 @@
 # GuiVM (AdminVM) with local 'rwx' permissions
 {{ vmname }}-admin-local-rwx:
   file.append:
-    - name: /etc/qubes-rpc/policy/include/admin-local-rwx
+    - name: /etc/qubes/policy.d/include/admin-local-rwx
     - text: |
-        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
-        {{ vmname }} {{ vmname }} allow,target=dom0
+        {{ vmname }} @tag:guivm-{{ vmname }} allow target=dom0
+        {{ vmname }} {{ vmname }} allow target=dom0
 
 # GuiVM (AdminVM) with global 'ro' permissions
 {% if salt['pillar.get']('qvm:' + vmname + ':admin-global-permissions') == 'ro' %}
 {{ vmname }}-admin-global-ro:
   file.append:
-    - name: /etc/qubes-rpc/policy/include/admin-global-ro
+    - name: /etc/qubes/policy.d/include/admin-global-ro
     - text: |
-        {{ vmname }} @adminvm allow,target=dom0
-        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
-        {{ vmname }} {{ vmname }} allow,target=dom0
+        {{ vmname }} @adminvm allow target=dom0
+        {{ vmname }} @tag:guivm-{{ vmname }} allow target=dom0
+        {{ vmname }} {{ vmname }} allow target=dom0
 {% endif %}
 
 {% if salt['pillar.get']('qvm:' + vmname + ':admin-global-permissions') == 'rwx' %}
 # GuiVM (AdminVM) with global 'rwx' permissions
 {{ vmname }}-admin-global-rwx:
   file.append:
-    - name: /etc/qubes-rpc/policy/include/admin-global-rwx
+    - name: /etc/qubes/policy.d/include/admin-global-rwx
     - text: |
-        {{ vmname }} @adminvm allow,target=dom0
-        {{ vmname }} @tag:guivm-{{ vmname }} allow,target=dom0
-        {{ vmname }} {{ vmname }} allow,target=dom0
+        {{ vmname }} @adminvm allow target=dom0
+        {{ vmname }} @tag:guivm-{{ vmname }} allow target=dom0
+        {{ vmname }} {{ vmname }} allow target=dom0
 {% endif %}
 {%- endmacro %}
 
