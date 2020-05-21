@@ -36,7 +36,7 @@ service:
 # as sys-gui is a admin-global-rwx
 sys-audio-rpc:
   file.managed:
-    - name: /etc/qubes/policy.d/30-sys-audio.policy
+    - name: /etc/qubes/policy.d/50-sys-audio.policy
     - contents: |
         admin.Events          *   sys-audio     sys-audio               allow   target=dom0
         admin.Events          *   sys-audio     @adminvm                allow   target=dom0
@@ -66,7 +66,7 @@ sys-audio-rpc:
 #      - sls: qvm.sys-gui
 
 # AudioVM (AdminVM) with local 'ro' permissions
-/etc/qubes-rpc/policy/include/admin-local-ro:
+/etc/qubes/policy.d/include/admin-local-ro:
   file.append:
     - text: |
         {{ vmname }} @tag:audiovm-{{ vmname }} allow,target=dom0
