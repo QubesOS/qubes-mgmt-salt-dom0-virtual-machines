@@ -10,7 +10,7 @@
 # Setup Qubes RPC policy
 {{ vmname }}-rpc:
   file.managed:
-    - name: /etc/qubes/policy.d/30-gui-{{ vmname }}.policy
+    - name: /etc/qubes/policy.d/50-gui-{{ vmname }}.policy
     - contents: |
         qubes.GetImageRGBA                  *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
