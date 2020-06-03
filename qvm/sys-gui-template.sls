@@ -7,7 +7,7 @@
 ##
 
 # WIP: until we have our group packages included
-# in qubes repository, we explicitely list needed packages
+# in Qubes VM repositories, we explicitely list needed packages
 sys-gui-xfce:
   pkg.installed:
     - pkgs:
@@ -21,28 +21,37 @@ sys-gui-xfce:
       - albatross-xfwm4-theme
       - alsa-utils
       - arc-theme
+      - blueberry
       - bluebird-gtk2-theme
       - bluebird-gtk3-theme
       - bluebird-xfwm4-theme
-      - greybird-gtk2-theme
-      - greybird-gtk3-theme
+      - dnfdragora-updater
+      - greybird-light-theme
+      - greybird-dark-theme
+      - greybird-xfce4-notifyd-theme
       - greybird-xfwm4-theme
       - gtk-xfce-engine
+      - gvfs
+      - initial-setup-gui
+      - openssh-askpass
+      - vim-enhanced
       - xdg-user-dirs-gtk
-      - xfce4-about
       - xfce4-appfinder
       - xfce4-datetime-plugin
-      - xfce4-panel
       - xfce4-places-plugin
-      - xfce4-power-manager
       - xfce4-pulseaudio-plugin
       - xfce4-screenshooter-plugin
-      - xfce4-session
-      - xfce4-settings
       - xfce4-taskmanager
       - xfce4-terminal
+      - xfwm4-theme-nodoka
+      - xfwm4-themes
+      - xscreensaver-base
+      - lightdm-gtk
+      - xfce4-about
+      - xfce4-panel
+      - xfce4-power-manager
+      - xfce4-session
+      - xfce4-settings
       - xfconf
       - xfdesktop
       - xfwm4
-      - xfwm4-theme-nodoka
-      - xfwm4-themes
