@@ -22,7 +22,7 @@ base:
   dom0:
     - match: nodegroup
     - qvm.sys-audio
-  {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-30-xfce') }}:
+  {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-32-xfce') }}:
     - qvm.sys-audio-template
   {{ vmname }}:
     - qvm.sys-audio-vm
