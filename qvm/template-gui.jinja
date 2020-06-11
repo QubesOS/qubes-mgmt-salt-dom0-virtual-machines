@@ -30,10 +30,11 @@
         admin.Events                        *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow target=dom0
         admin.label.Get                     *   {{ vmname }}             dom0                             allow
         admin.label.Index                   *   {{ vmname }}             dom0                             allow
+        admin.vm.feature.Set +keyboard-layout   {{ vmname }}             {{ vmname }}                     allow target=dom0
         admin.vm.property.Get               *   {{ vmname }}             dom0                             allow
         admin.vm.volume.List                *   {{ vmname }}             dom0                             allow
         admin.vm.device.pci.Available       *   {{ vmname }}             dom0                             allow
-        admin.vm.feature.Get                +internal {{ vmname }}             dom0                             allow
+        admin.vm.feature.Get        +internal   {{ vmname }}             dom0                             allow
         # TODO: find a way to avoid this one (ram, cpu usage)
         admin.vm.CurrentState               *   {{ vmname }}             dom0                             allow
 
