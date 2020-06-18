@@ -11,47 +11,57 @@
 sys-gui-xfce:
   pkg.installed:
     - pkgs:
-      - qubes-vm-guivm
+# Qubes related packages
       - qubes-manager
+      - qubes-vm-guivm
+# XFCE related packages
+      - arc-theme
+      - gvfs
+      - xdg-user-dirs-gtk
+      - xfce4-appfinder
+      - xfce4-datetime-plugin
+      - xfce4-panel
+      - xfce4-places-plugin
+      - xfce4-power-manager
+      - xfce4-pulseaudio-plugin
+      - xfce4-session
+      - xfce4-settings
       - xfce4-settings-qubes
+      - xfce4-taskmanager
+      - xfce4-terminal
+      - xfconf
+      - xfwm4
+{% if grains['os'] == 'Fedora' %}
       - adwaita-gtk2-theme
       - adwaita-icon-theme
       - albatross-gtk2-theme
       - albatross-gtk3-theme
       - albatross-xfwm4-theme
-      - alsa-utils
-      - arc-theme
-      - blueberry
       - bluebird-gtk2-theme
       - bluebird-gtk3-theme
       - bluebird-xfwm4-theme
-      - dnfdragora-updater
-      - greybird-light-theme
       - greybird-dark-theme
+      - greybird-light-theme
       - greybird-xfce4-notifyd-theme
       - greybird-xfwm4-theme
       - gtk-xfce-engine
-      - gvfs
-      - initial-setup-gui
-      - openssh-askpass
-      - vim-enhanced
-      - xdg-user-dirs-gtk
-      - xfce4-appfinder
-      - xfce4-datetime-plugin
-      - xfce4-places-plugin
-      - xfce4-pulseaudio-plugin
+      - lightdm-gtk
+      - xfce4-about
       - xfce4-screenshooter-plugin
-      - xfce4-taskmanager
-      - xfce4-terminal
+      - xfdesktop
       - xfwm4-theme-nodoka
       - xfwm4-themes
       - xscreensaver-base
-      - lightdm-gtk
-      - xfce4-about
-      - xfce4-panel
-      - xfce4-power-manager
-      - xfce4-session
-      - xfce4-settings
-      - xfconf
-      - xfdesktop
-      - xfwm4
+{% elif grains['os'] == 'Debian' %}
+      - albatross-gtk-theme
+      - blackbird-gtk-theme
+      - bluebird-gtk-theme
+      - gnome-themes-standard
+      - greybird-gtk-theme
+      - gtk3-engines-xfce
+      - libxfce4ui-utils
+      - lightdm
+      - xfce4-screenshooter
+      - xfdesktop4
+      - xscreensaver
+{% endif %}
