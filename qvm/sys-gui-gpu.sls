@@ -8,7 +8,7 @@
 
 sys-gui-gpu-template:
   pkg.installed:
-    - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-30-xfce') }}
+    - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-32-xfce') }}
 
 {% from "qvm/template.jinja" import load -%}
 {% from "qvm/template-gui.jinja" import gui_common -%}
@@ -18,7 +18,7 @@ name:          sys-gui-gpu
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-30-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-32-xfce') }}
 prefs:
   - virt_mode: hvm
   - netvm:     ""

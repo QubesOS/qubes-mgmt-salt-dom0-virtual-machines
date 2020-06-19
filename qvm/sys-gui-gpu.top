@@ -16,7 +16,7 @@ base:
   dom0:
     - match: nodegroup
     - qvm.sys-gui-gpu
-  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-30-xfce') }}:
+  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-32-xfce') }}:
     - qvm.sys-gui-template
   sys-gui-gpu:
     - qvm.sys-gui-vm
