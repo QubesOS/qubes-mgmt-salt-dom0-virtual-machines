@@ -26,7 +26,18 @@ prefs:
 service:
   - enable:
     - guivm-gui-agent
+features:
+  - enable:
+    - gui-allow-fullscreen
 {%- endload %}
+
+/usr/share/xsessions/sys-gui.desktop:
+  file.managed:
+    - contents: |
+        [Desktop Entry]
+        Name=GUI Domain (sys-gui)
+        Exec=qubes-guivm-session sys-gui
+        Type=Application
 
 {{ load(defaults) }}
 {{ gui_common(defaults.name) }}
