@@ -22,6 +22,12 @@
         qubes.SyncAppMenus                  *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
         qubes.WindowIconUpdater             *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
         qubes.WaitForSession                *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+{%- if 'psu' in salt['pillar.get']('qvm:' + vmname + ':dummy-modules', []) %}
+        qubes.PowerSupply                   *   {{ vmname }}             @default                         allow target=dom0
+{%- endif %}
+{%- if 'backlight' in salt['pillar.get']('qvm:' + vmname + ':dummy-modules', []) %}
+        qubes.SetBrightness                 *   {{ vmname }}             @default                         allow target=dom0
+{%- endif %}
 
         # Parts of Admin API necessary for GUI-related tools to work
         admin.vm.List                       *   {{ vmname }}             dom0                             allow

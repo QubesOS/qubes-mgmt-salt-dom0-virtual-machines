@@ -10,6 +10,11 @@ sys-gui-gpu-template:
   pkg.installed:
     - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-32-xfce') }}
 
+{% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
+dummy-psu-dom0:
+  pkg.installed: []
+{% endif %}
+
 {% from "qvm/template.jinja" import load -%}
 {% from "qvm/template-gui.jinja" import gui_common -%}
 
@@ -36,8 +41,10 @@ service:
   - enable:
     - lightdm
     - guivm-gui-agent
+{% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
+    - dummy-psu
+{% endif %}
 {%- endload %}
 
 {{ load(defaults) }}
 {{ gui_common(defaults.name) }}
-

@@ -4,6 +4,8 @@
 qvm:
     sys-gui-gpu:
         admin-global-permissions: 'rwx'
+        dummy-modules:
+            - psu
     sys-gui-gpu-vm:
         password-hash: '$1$eByLDWM4$RgCTKI9aKAsNSbKopFSZ11'
         # TODO proper password setting
