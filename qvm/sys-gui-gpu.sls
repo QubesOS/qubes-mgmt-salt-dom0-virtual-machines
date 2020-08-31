@@ -37,6 +37,7 @@ features:
     - no-default-kernelopts
   - set:
     - video-model: none
+    - input-proxy-ps2: true
 service:
   - enable:
     - lightdm
