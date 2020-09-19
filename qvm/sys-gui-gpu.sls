@@ -47,5 +47,12 @@ service:
 {% endif %}
 {%- endload %}
 
+# set GuiVM target for input-proxy-sender of dom0 attached input devices (not USB)
+/etc/qubes/input-proxy-target:
+  file.manager:
+    - user: user
+    - mode: 640
+    - contents: "TARGET_DOMAIN=sys-gui-gpu"
+
 {{ load(defaults) }}
 {{ gui_common(defaults.name) }}
