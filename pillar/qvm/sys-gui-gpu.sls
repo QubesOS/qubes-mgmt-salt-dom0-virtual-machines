@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
-# 'user' refers to dom0 user from where to get password
-{% set user = 'admin' %}
+# 'user' refers to the first dom0 user in 'qubes' group
+{% set user = salt['cmd.shell']("awk -F'[:,]' '/qubes/{print $4}' /etc/group") %}
 # 'password_hash' is obtained from /etc/shadow with corresponding
 # user set above.
 {% set password_hash = salt['shadow.info'](user).get('passwd') %}
