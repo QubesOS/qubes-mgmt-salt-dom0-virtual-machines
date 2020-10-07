@@ -16,11 +16,22 @@
 #   qubesctl state.sls qvm.sys-net dom0
 ##
 
+{% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
+
+{% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
+include:
+  - qvm.default-dispvm
+{% endif %}
+
 {%- from "qvm/template.jinja" import load -%}
 
 {% load_yaml as defaults -%}
 name:          sys-net
 present:
+  {% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
+  - class:     DispVM
+  - template:  {{default_template}}-dvm
+  {% endif %}
   - label:     red
 prefs:
   - netvm:     ""
@@ -34,6 +45,10 @@ service:
     - clocksync
   - disable:
     - meminfo-writer
+{% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
+require:
+  - qvm:       {{default_template}}-dvm
+{% endif %}
 {%- endload %}
 
 {{ load(defaults) }}

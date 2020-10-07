@@ -128,6 +128,12 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.top
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.top
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-usb.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-usb.top
 /srv/pillar/base/qvm/init.top
 
 %config(noreplace) /etc/salt/minion.d/formula-virtual-machines.conf
