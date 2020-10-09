@@ -16,7 +16,12 @@
 #   qubesctl state.sls qvm.sys-firewall dom0
 ##
 
+{% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
+
 include:
+  {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
+  - qvm.default-dispvm
+  {% endif %}
   - qvm.sys-net
 
 {%- from "qvm/template.jinja" import load -%}
@@ -24,6 +29,10 @@ include:
 {% load_yaml as defaults -%}
 name:          sys-firewall
 present:
+  {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
+  - class:     DispVM
+  - template:  {{default_template}}-dvm
+  {% endif %}
   - label:     green
 prefs:
   - netvm:     sys-net
@@ -31,6 +40,9 @@ prefs:
   - provides-network: true
   - memory:       500
 require:
+  {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
+  - qvm:       {{default_template}}-dvm
+  {% endif %}
   - qvm:       sys-net
 {%- endload %}
 

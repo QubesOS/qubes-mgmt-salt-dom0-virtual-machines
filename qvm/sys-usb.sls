@@ -16,7 +16,12 @@
 #   qubesctl state.sls qvm.sys-usb dom0
 ##
 
+{% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
+
 include:
+  {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
+  - qvm.default-dispvm
+  {% endif %}
   - qvm.hide-usb-from-dom0
 
 {% from "qvm/template.jinja" import load -%}
@@ -27,6 +32,10 @@ include:
 {% load_yaml as defaults -%}
 name:          sys-usb
 present:
+  {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
+  - class:     DispVM
+  - template:  {{default_template}}-dvm
+  {% endif %}
   - label:     red
   - mem:       300
   - flags:
@@ -41,6 +50,10 @@ service:
   - disable:
     - network-manager
     - meminfo-writer
+{% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
+require:
+  - qvm:       {{default_template}}-dvm
+{% endif %}
 {%- endload %}
 
 {{ load(defaults) }}
