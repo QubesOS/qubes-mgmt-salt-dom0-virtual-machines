@@ -10,7 +10,7 @@ qubes-template-{{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-32-xfce') }
   pkg.installed: []
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
-dummy-psu-dom0:
+dummy-psu-sender:
   pkg.installed: []
 {% endif %}
 {% if 'backlight' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
