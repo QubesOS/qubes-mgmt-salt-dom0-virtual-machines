@@ -33,6 +33,7 @@ prefs:
   - netvm:     sys-firewall
   - provides-network: true
   - autostart: true
+  - default-dispvm: whonix-ws-{{ whonix.whonix_version }}-dvm
 require:
   - pkg:       template-whonix-gw-{{ whonix.whonix_version }}
   - qvm:       sys-firewall
