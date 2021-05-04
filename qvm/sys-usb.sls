@@ -82,3 +82,10 @@ sys-usb-input-proxy:
     - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
     - require:
       - pkg:       qubes-input-proxy
+
+/etc/systemd/system/qubes-vm@{{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }}.service.d/50_autostart.conf:
+  file.managed:
+    - contents: |
+        [Unit]
+        Before=systemd-user-sessions.service
+    - makedirs: True
