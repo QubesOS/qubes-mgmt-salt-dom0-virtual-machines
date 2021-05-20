@@ -13,6 +13,7 @@ sys-gui-xfce:
     - pkgs:
 # Qubes related packages
       - qubes-manager
+      - qubes-desktop-linux-manager
       - qubes-vm-guivm
 # XFCE related packages
       - arc-theme
