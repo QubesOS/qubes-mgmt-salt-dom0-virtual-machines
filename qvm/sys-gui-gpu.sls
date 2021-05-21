@@ -41,7 +41,7 @@ features:
 service:
   - enable:
     - lightdm
-    - guivm-gui-agent
+    - guivm
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
     - dummy-psu
 {% endif %}

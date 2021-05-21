@@ -34,6 +34,7 @@ prefs:
   - autostart: true
 service:
   - enable:
+    - guivm
     - guivm-gui-agent
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
     - dummy-psu
