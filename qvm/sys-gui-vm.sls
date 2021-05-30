@@ -7,7 +7,7 @@
 ##
 
 # WIP: currently use default user 'user'
-{% for autostart in ['xscreensaver', 'xscreensaver-autostart', 'nm-applet'] %}
+{% for autostart in ['nm-applet'] %}
 /home/user/.config/autostart/{{autostart}}.desktop:
   file.managed:
     - user: user
