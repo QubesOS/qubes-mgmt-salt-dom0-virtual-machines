@@ -12,8 +12,11 @@
   file.managed:
     - name: /etc/qubes/policy.d/50-gui-{{ vmname }}.policy
     - contents: |
+        policy.EvalGUI  +qubes.ClipboardPaste   {{ vmname }}             dom0                             allow
         qubes.GetImageRGBA                  *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.ClipboardCopy                 +   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.ClipboardPaste                +   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         # TODO: limit to templates related to @tag:guivm-{{ vmname }} only
         qubes.GetAppmenus                   *   {{ vmname }}             @type:TemplateVM                 allow
         qubes.SetMonitorLayout              *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
