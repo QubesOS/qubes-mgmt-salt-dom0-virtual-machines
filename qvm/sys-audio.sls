@@ -26,7 +26,7 @@ prefs:
   - template:  {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-33-xfce') }}
 service:
   - enable:
-    - audiovm-audio-agent
+    - audiovm
 {%- endload %}
 
 {{ load(defaults) }}

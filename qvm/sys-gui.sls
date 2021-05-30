@@ -34,6 +34,7 @@ prefs:
   - autostart: true
 service:
   - enable:
+    - guivm
     - guivm-gui-agent
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
     - dummy-psu
@@ -44,6 +45,10 @@ service:
 features:
   - enable:
     - gui-allow-fullscreen
+  - set:
+    # don't intercept those at dom0, let guivm see them
+    - gui-secure-copy-sequence: none
+    - gui-secure-paste-sequence: none
 {%- endload %}
 
 /usr/share/xsessions/sys-gui.desktop:
