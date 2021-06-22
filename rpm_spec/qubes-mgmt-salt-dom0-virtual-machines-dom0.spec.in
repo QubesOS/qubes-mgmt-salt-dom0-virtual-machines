@@ -86,7 +86,9 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu-attach-gpu.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu-detach-gpu.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-gui-gpu.top
-/srv/formulas/base/virtual-machines-formula/qvm/template-gui.jinja
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vnc-vm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vnc.sls
+/srv/formulas/base/virtual-machines-formula/qvm/sys-gui-vnc.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio-template.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-audio-vm.sls
@@ -128,6 +130,8 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-as-audiovm.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.top
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-gpu.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-vnc.sls
+%config(noreplace) /srv/pillar/base/qvm/sys-gui-vnc.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.sls
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.sls
