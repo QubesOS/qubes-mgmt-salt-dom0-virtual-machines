@@ -6,7 +6,7 @@
 # ===========
 ##
 
-qubes-template-{{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-33-xfce') }}:
+qubes-template-{{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-34-xfce') }}:
   pkg.installed: []
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
@@ -26,7 +26,7 @@ name:          sys-gui
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-33-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-34-xfce') }}
 prefs:
   - netvm:     ""
   - guivm:     dom0

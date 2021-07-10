@@ -52,33 +52,33 @@ qvm-disabled:
   work:
     name:          test-work
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
       - qvm:       test-sys-firewall
 
   personal:
     name:          test-personal
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
       - qvm:       test-sys-firewall
 
   untrusted:
     name:          test-untrusted
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
       - qvm:       test-sys-firewall
 
   vault:
     name:          test-vault
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
 
   sys-net:
     name:          test-sys-net
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
 
   sys-firewall:
     name:          test-sys-firewall
     require:
-      - pkg:       template-fedora-33
+      - pkg:       template-fedora-34
       - qvm:       test-sys-net
