@@ -8,7 +8,7 @@
 
 sys-gui-gpu-template:
   pkg.installed:
-    - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-33-xfce') }}
+    - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-34-xfce') }}
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
 dummy-psu-dom0:
@@ -23,7 +23,7 @@ name:          sys-gui-gpu
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-33-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-34-xfce') }}
 prefs:
   - virt_mode: hvm
   - netvm:     ""
