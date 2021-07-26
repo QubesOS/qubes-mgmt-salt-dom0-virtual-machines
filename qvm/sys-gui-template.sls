@@ -53,7 +53,6 @@ sys-gui-xfce:
       - xfce4-about
       - xfce4-screenshooter-plugin
       - xfdesktop
-      - xfwm4-theme-nodoka
       - xfwm4-themes
       - xscreensaver-base
 {% elif grains['os'] == 'Debian' %}
