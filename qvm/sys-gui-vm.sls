@@ -17,3 +17,13 @@
         [Desktop Entry]
         Hidden=true
 {% endfor %}
+
+# For Xfce, enable xscreensaver
+/home/user/.config/autostart/xscreensaver-autostart.desktop:
+  file.managed:
+    - user: user
+    - mode: 640
+    - makedirs: True
+    - contents: |
+        [Desktop Entry]
+        OnlyShowIn=XFCE;
