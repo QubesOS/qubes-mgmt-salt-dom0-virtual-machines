@@ -15,6 +15,9 @@ dummy-psu-dom0:
   pkg.installed: []
 {% endif %}
 
+qubes-input-proxy-sender:
+  pkg.installed: []
+
 {% from "qvm/template.jinja" import load -%}
 {% from "qvm/template-gui.jinja" import gui_common -%}
 
