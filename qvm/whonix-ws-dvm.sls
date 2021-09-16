@@ -41,7 +41,7 @@ features:
   - enable:
     - appmenus-dispvm
 require:
-  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
+  - qvm:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
 {%- endload %}
 

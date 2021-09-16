@@ -34,7 +34,7 @@ prefs:
   - provides-network: true
   - autostart: true
 require:
-  - pkg:       template-whonix-gw-{{ whonix.whonix_version }}
+  - qvm:       template-whonix-gw-{{ whonix.whonix_version }}
   - qvm:       sys-firewall
 {%- endload %}
 

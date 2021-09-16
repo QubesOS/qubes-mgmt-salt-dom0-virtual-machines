@@ -19,14 +19,14 @@ qvm-disabled:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - pkg:       template-whonix-gw
+      - qvm:       template-whonix-gw
       - qvm:       test-sys-whonix
 
   whonix-ws:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - pkg:       template-whonix-ws
+      - qvm:       template-whonix-ws
       - qvm:       test-sys-whonix
 
   sys-whonix:
@@ -38,7 +38,7 @@ qvm-disabled:
     #  - flags:
     #    - proxy
     require:
-      - pkg:       template-whonix-gw
+      - qvm:       template-whonix-gw
       - qvm:       test-sys-firewall
 
   anon-whonix:
@@ -46,39 +46,39 @@ qvm-disabled:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - pkg:       template-whonix-ws
+      - qvm:       template-whonix-ws
       - qvm:       test-sys-whonix
 
   work:
     name:          test-work
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
       - qvm:       test-sys-firewall
 
   personal:
     name:          test-personal
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
       - qvm:       test-sys-firewall
 
   untrusted:
     name:          test-untrusted
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
       - qvm:       test-sys-firewall
 
   vault:
     name:          test-vault
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
 
   sys-net:
     name:          test-sys-net
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
 
   sys-firewall:
     name:          test-sys-firewall
     require:
-      - pkg:       template-fedora-34
+      - qvm:       template-fedora-34
       - qvm:       test-sys-net

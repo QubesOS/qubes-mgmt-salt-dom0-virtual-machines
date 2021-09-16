@@ -36,7 +36,7 @@ tags:
   - add:
     - anon-vm
 require:
-  - pkg:       template-whonix-ws-{{ whonix.whonix_version }}
+  - qvm:       template-whonix-ws-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
   - qvm:       whonix-ws-{{ whonix.whonix_version }}-dvm
 {%- endload %}

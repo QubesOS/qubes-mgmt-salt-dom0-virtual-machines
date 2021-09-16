@@ -14,8 +14,8 @@
 {% import "qvm/whonix.jinja" as whonix -%}
 
 template-whonix-gw-{{ whonix.whonix_version }}:
-  pkg.installed:
-    - name:     qubes-template-whonix-gw-{{ whonix.whonix_version }}
+  qvm.template_installed:
+    - name:     whonix-gw-{{ whonix.whonix_version }}
     - fromrepo: {{ whonix.whonix_repo }}
 
 whonix-gw-tag:

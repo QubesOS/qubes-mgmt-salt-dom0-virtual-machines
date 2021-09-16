@@ -7,8 +7,8 @@
 ##
 
 sys-gui-gpu-template:
-  pkg.installed:
-    - name: qubes-template-{{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-34-xfce') }}
+  qvm.template_installed:
+    - name: {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-34-xfce') }}
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
 dummy-psu-dom0:
