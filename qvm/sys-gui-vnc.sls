@@ -6,8 +6,8 @@
 # ===============
 ##
 
-qubes-template-{{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-34-xfce') }}:
-  pkg.installed: []
+{{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-34-xfce') }}:
+  qvm.template_installed: []
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-vnc:dummy-modules', []) %}
 dummy-psu-sender:
