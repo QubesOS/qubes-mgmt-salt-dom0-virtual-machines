@@ -8,6 +8,7 @@ URL:	   http://www.qubes-os.org/
 
 Group:     System administration tools
 BuildArch: noarch
+BuildRequires: make
 Requires:  qubes-mgmt-salt
 Requires:  qubes-mgmt-salt-dom0
 Requires:  qubes-core-admin-addon-whonix
