@@ -79,7 +79,11 @@ qubes-input-proxy:
 sys-usb-input-proxy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.InputMouse
+{% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
+    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,user=root,default_target=dom0
+{% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
     - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
+{% endif %}
     - require:
       - pkg:       qubes-input-proxy
 
