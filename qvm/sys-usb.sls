@@ -18,6 +18,18 @@
 
 {% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
 
+{% set usb_pcidevs = salt['grains.get']('pci_usb_devs', []) %}
+# leave devices listed in rd.qubes.dom0_usb alone
+{% for param, value in salt['grains.get']('kernelparams', []) %}
+  {% if param == 'rd.qubes.dom0_usb' and value is string %}
+    {% for dev in value.split(',') %}
+      {% if dev in usb_pcidevs %}
+        {% do usb_pcidevs.remove(dev) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
 include:
   {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
   - qvm.default-dispvm
@@ -44,7 +56,7 @@ prefs:
   - netvm:     ""
   - virt_mode: hvm
   - autostart: true
-  - pcidevs:   {{ salt['grains.get']('pci_usb_devs', [])|yaml }}
+  - pcidevs:   {{ usb_pcidevs|yaml }}
   - pci_strictreset: false
 service:
   - disable:
@@ -65,7 +77,7 @@ require:
 {{ vmname }}-usb:
   qvm.prefs:
     - name: {{ vmname }}
-    - pcidevs: {{ (salt['grains.get']('pci_net_devs', []) + salt['grains.get']('pci_usb_devs', []))|yaml }}
+    - pcidevs: {{ (salt['grains.get']('pci_net_devs', []) + usb_pcidevs)|yaml }}
     - pci_strictreset: False
     - require:
       - sls: qvm.sys-net
