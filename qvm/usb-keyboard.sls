@@ -41,14 +41,14 @@ unhide-usb-from-dom0-uefi:
   file.replace:
     - name: {{ uefi_xen_cfg }}
     - pattern: ' rd.qubes.hide_all_usb'
-    - repl: ''
+    - repl: ' usbcore.authorized_default=0'
     - onlyif: test -f {{ uefi_xen_cfg }}
 
 unhide-usb-from-dom0-grub:
   file.replace:
     - name: /etc/default/grub
     - pattern: ' rd.qubes.hide_all_usb'
-    - repl: ''
+    - repl: ' usbcore.authorized_default=0'
     - onlyif: test -f /etc/default/grub
 
 grub-regenerate-unhide:
