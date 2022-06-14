@@ -11,7 +11,7 @@ sys-gui-gpu-template:
     - name: {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-34-xfce') }}
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
-dummy-psu-dom0:
+dummy-psu-sender:
   pkg.installed: []
 {% endif %}
 
