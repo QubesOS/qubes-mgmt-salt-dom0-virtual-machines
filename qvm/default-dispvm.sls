@@ -5,7 +5,7 @@
 # qvm.default-dispvm
 # ========
 #
-# Installs default DispVM template: fedora-34-dvm AppVM.
+# Installs default DispVM template: fedora-36-dvm AppVM.
 #
 # Execute:
 #   qubesctl state.sls qvm.default-dispvm dom0
