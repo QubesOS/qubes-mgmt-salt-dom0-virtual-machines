@@ -99,6 +99,17 @@ sys-usb-input-proxy:
     - require:
       - pkg:       qubes-input-proxy
 
+{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') != 'deny' %}
+sys-usb-input-proxy-kbd:
+  file.prepend:
+    - name: /etc/qubes-rpc/policy/qubes.InputKeyboard
+{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'ask' %}
+    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,default_target=dom0
+{% elif salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
+    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
+{% endif %}
+{% endif %}
+
 /etc/systemd/system/qubes-vm@{{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }}.service.d/50_autostart.conf:
   file.managed:
     - contents: |
