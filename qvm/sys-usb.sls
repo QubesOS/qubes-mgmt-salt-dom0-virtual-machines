@@ -49,7 +49,7 @@ present:
   - template:  {{default_template}}-dvm
   {% endif %}
   - label:     red
-  - mem:       300
+  - mem:       400
   - flags:
     - net
 prefs:
