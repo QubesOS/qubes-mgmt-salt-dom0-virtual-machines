@@ -135,6 +135,8 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-gui-vnc.top
 %config(noreplace) /srv/pillar/base/qvm/sys-usb-allow-mouse.sls
 %config(noreplace) /srv/pillar/base/qvm/sys-usb-allow-mouse.top
+%config(noreplace) /srv/pillar/base/qvm/usb-keyboard.sls
+%config(noreplace) /srv/pillar/base/qvm/usb-keyboard.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.sls
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.sls
