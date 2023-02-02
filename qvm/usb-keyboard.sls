@@ -24,18 +24,14 @@ include:
 # Setup Qubes RPC policy
 sys-usb-input-proxy-keyboard:
   file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.InputKeyboard
+    - name: /etc/qubes/policy.d/50-config-input.policy
     - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
     - require:
       - pkg:       qubes-input-proxy
 
 
 {% set uefi_xen_cfg = '/boot/efi/EFI/qubes/xen.cfg' %}
-{% if grains['boot_mode'] == 'efi' %}
-{% set grub_cfg = '/boot/efi/EFI/qubes/grub.cfg' %}
-{% else %}
 {% set grub_cfg = '/boot/grub2/grub.cfg' %}
-{% endif %}
 
 unhide-usb-from-dom0-uefi:
   file.replace:

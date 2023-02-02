@@ -12,11 +12,7 @@
 ##
 
 {% set uefi_xen_cfg = '/boot/efi/EFI/qubes/xen.cfg' %}
-{% if grains['boot_mode'] == 'efi' %}
-{% set grub_cfg = '/boot/efi/EFI/qubes/grub.cfg' %}
-{% else %}
 {% set grub_cfg = '/boot/grub2/grub.cfg' %}
-{% endif %}
 
 # file.line module is supported only in salt 2015.08 or later...
 hide-usb-from-dom0-uefi:
