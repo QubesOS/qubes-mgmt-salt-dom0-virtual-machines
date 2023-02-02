@@ -57,21 +57,13 @@ service:
 
 # Setup Qubes RPC policy for sys-usb to sys-gui-gpu
 sys-usb-input-proxy:
-  file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.InputMouse
+  file.managed:
+    - name: /etc/qubes/policy.d/45-sys-gui-gpu.policy
 {% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
-    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,user=root,default_target=sys-gui-gpu
+    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,user=root,default_target=sys-gui-gpu
 {% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
-    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root,target=sys-gui-gpu
+    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root,target=sys-gui-gpu
 {% endif %}
-    - require:
-      - file: sys-usb-previous-rpc
-
-sys-usb-previous-rpc:
-  file.line:
-    - name: /etc/qubes-rpc/policy/qubes.InputMouse
-    - match: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0
-    - mode: delete
 
 {{ load(defaults) }}
 {{ gui_common(defaults.name) }}

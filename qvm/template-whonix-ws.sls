@@ -30,14 +30,7 @@ whonix-ws-tag:
 
 whonix-ws-update-policy:
   file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
+    - name: /etc/qubes/policy.d/50-config-updates.policy
     - text:
-      - $tag:whonix-updatevm $default allow,target=sys-whonix
-      - $tag:whonix-updatevm $anyvm deny
-
-# this is for whonix-ws based VMs
-whonix-get-date-policy:
-  file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.GetDate
-    - text:
-      - $tag:anon-vm $anyvm deny
+      - qubes.UpdatesProxy * @tag:whonix-updatevm @default allow,target=sys-whonix
+      - qubes.UpdatesProxy * @tag:whonix-updatevm @anyvm deny

@@ -30,7 +30,7 @@ whonix-gw-tag:
 
 whonix-gw-update-policy:
   file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
+    - name: /etc/qubes/policy.d/50-config-updates.policy
     - text:
-      - $tag:whonix-updatevm $default allow,target=sys-whonix
-      - $tag:whonix-updatevm $anyvm deny
+      - qubes.UpdatesProxy * @tag:whonix-updatevm @default allow,target=sys-whonix
+      - qubes.UpdatesProxy * @tag:whonix-updatevm @anyvm deny
