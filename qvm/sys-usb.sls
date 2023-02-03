@@ -92,9 +92,9 @@ sys-usb-input-proxy:
   file.prepend:
     - name: /etc/qubes/policy.d/50-config-input.policy
 {% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,user=root,default_target=dom0
+    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask default_target=dom0
 {% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
+    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
 {% endif %}
     - require:
       - pkg:       qubes-input-proxy
@@ -104,7 +104,7 @@ sys-usb-input-proxy-kbd:
   file.prepend:
     - name: /etc/qubes/policy.d/50-config-input.policy
 {% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'ask' %}
-    - text: qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask,default_target=dom0
+    - text: qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask default_target=dom0
 {% elif salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
     - text: qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
 {% endif %}

@@ -25,7 +25,7 @@ include:
 sys-usb-input-proxy-keyboard:
   file.prepend:
     - name: /etc/qubes/policy.d/50-config-input.policy
-    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow,user=root
+    - text: {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
     - require:
       - pkg:       qubes-input-proxy
 

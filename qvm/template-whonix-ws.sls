@@ -32,5 +32,5 @@ whonix-ws-update-policy:
   file.prepend:
     - name: /etc/qubes/policy.d/50-config-updates.policy
     - text:
-      - qubes.UpdatesProxy * @tag:whonix-updatevm @default allow,target=sys-whonix
+      - qubes.UpdatesProxy * @tag:whonix-updatevm @default allow target=sys-whonix
       - qubes.UpdatesProxy * @tag:whonix-updatevm @anyvm deny

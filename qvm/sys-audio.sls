@@ -69,7 +69,7 @@ sys-audio-rpc:
 /etc/qubes/policy.d/include/admin-local-ro:
   file.append:
     - text: |
-        {{ vmname }} @tag:audiovm-{{ vmname }} allow,target=dom0
-        {{ vmname }} {{ vmname }} allow,target=dom0
+        {{ vmname }} @tag:audiovm-{{ vmname }} allow target=dom0
+        {{ vmname }} {{ vmname }} allow target=dom0
 
 {% endif %}
