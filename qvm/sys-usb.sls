@@ -87,28 +87,33 @@ require:
 qubes-input-proxy:
   pkg.installed: []
 
+{% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
+{% set mouse_action = 'ask default_target=dom0' %}
+{% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
+{% set mouse_action = 'allow' %}
+{% else %}
+{% set mouse_action = 'deny' %}
+{% endif %}
+
+{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'ask' %}
+{% set keyboard_action = 'ask default_target=dom0' %}
+{% elif salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
+{% set keyboard_action = 'allow' %}
+{% else %}
+{% set keyboard_action = 'deny' %}
+{% endif %}
+
 # Setup Qubes RPC policy
 sys-usb-input-proxy:
-  file.prepend:
+  file.managed:
     - name: /etc/qubes/policy.d/50-config-input.policy
-{% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask default_target=dom0
-{% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
-{% endif %}
+    - contents: |
+        qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ mouse_action }}
+        qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ keyboard_action }}
+        # not configurable by this state
+        qubes.InputTablet * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 deny
     - require:
       - pkg:       qubes-input-proxy
-
-{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') != 'deny' %}
-sys-usb-input-proxy-kbd:
-  file.prepend:
-    - name: /etc/qubes/policy.d/50-config-input.policy
-{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'ask' %}
-    - text: qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask default_target=dom0
-{% elif salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
-    - text: qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow
-{% endif %}
-{% endif %}
 
 /etc/systemd/system/qubes-vm@{{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }}.service.d/50_autostart.conf:
   file.managed:
