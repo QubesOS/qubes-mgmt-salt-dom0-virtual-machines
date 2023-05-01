@@ -5,7 +5,7 @@
 # qvm.default-dispvm
 # ========
 #
-# Installs default DispVM template: fedora-37-dvm AppVM.
+# Installs default DispVM template: fedora-37-dvm AppVM unless configured otherwise.
 #
 # Execute:
 #   qubesctl state.sls qvm.default-dispvm dom0
@@ -25,7 +25,8 @@
      - enable:
        - appmenus-dispvm
 
-echo -e 'firefox.desktop\nxterm.desktop' | qvm-appmenus --set-whitelist=- --update {{default_template}}-dvm:
+# Handle org.gnome.Terminal, xfce4-terminal, and xterm, as well as firefox vs firefox-esr
+qvm-appmenus --get-default-whitelist {{default_template}} | grep -i 'firefox\|term' | qvm-appmenus --set-whitelist=- --update {{default_template}}-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - requires:
