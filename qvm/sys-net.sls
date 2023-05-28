@@ -30,7 +30,7 @@ name:          sys-net
 present:
   {% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
   - class:     DispVM
-  - template:  {{default_template}}-dvm
+  - template:  default-dvm
   {% endif %}
   - label:     red
 prefs:
@@ -47,7 +47,7 @@ service:
     - meminfo-writer
 {% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
 require:
-  - qvm:       {{default_template}}-dvm
+  - qvm:       default-dvm
 {% endif %}
 {%- endload %}
 

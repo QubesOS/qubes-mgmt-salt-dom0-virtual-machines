@@ -46,7 +46,7 @@ name:          sys-usb
 present:
   {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
   - class:     DispVM
-  - template:  {{default_template}}-dvm
+  - template:  default-dvm
   {% endif %}
   - label:     red
   - mem:       400
@@ -64,7 +64,7 @@ service:
     - meminfo-writer
 {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
 require:
-  - qvm:       {{default_template}}-dvm
+  - qvm:       default-dvm
 {% endif %}
 {%- endload %}
 

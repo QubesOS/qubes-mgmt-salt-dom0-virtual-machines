@@ -14,7 +14,7 @@
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
 {% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
 
-{{default_template}}-dvm:
+default-dvm:
   qvm.vm:
    - present:
      - label: red
@@ -26,8 +26,8 @@
        - appmenus-dispvm
 
 # Handle org.gnome.Terminal, xfce4-terminal, and xterm, as well as firefox vs firefox-esr
-qvm-appmenus --get-default-whitelist {{default_template}} | grep -i 'firefox\|term' | qvm-appmenus --set-whitelist=- --update {{default_template}}-dvm:
+qvm-appmenus --get-default-whitelist {{default_template}} | grep -i 'firefox\|term' | qvm-appmenus --set-whitelist=- --update default-dvm:
   cmd.run:
     - runas: {{ gui_user }}
     - requires:
-      - qvm: {{default_template}}-dvm
+      - qvm: default-dvm

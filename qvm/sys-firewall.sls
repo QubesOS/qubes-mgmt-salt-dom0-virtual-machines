@@ -31,7 +31,7 @@ name:          sys-firewall
 present:
   {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
   - class:     DispVM
-  - template:  {{default_template}}-dvm
+  - template:  default-dvm
   {% endif %}
   - label:     green
 prefs:
@@ -41,7 +41,7 @@ prefs:
   - memory:       500
 require:
   {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
-  - qvm:       {{default_template}}-dvm
+  - qvm:       default-dvm
   {% endif %}
   - qvm:       sys-net
 {%- endload %}
