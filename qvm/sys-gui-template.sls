@@ -38,12 +38,6 @@ sys-gui-xfce:
       - dummy-backlight-vm
       - adwaita-gtk2-theme
       - adwaita-icon-theme
-      - albatross-gtk2-theme
-      - albatross-gtk3-theme
-      - albatross-xfwm4-theme
-      - bluebird-gtk2-theme
-      - bluebird-gtk3-theme
-      - bluebird-xfwm4-theme
       - greybird-dark-theme
       - greybird-light-theme
       - greybird-xfce4-notifyd-theme
@@ -56,9 +50,7 @@ sys-gui-xfce:
       - xfwm4-themes
       - xscreensaver-base
 {% elif grains['os'] == 'Debian' %}
-      - albatross-gtk-theme
       - blackbird-gtk-theme
-      - bluebird-gtk-theme
       - gnome-themes-standard
       - greybird-gtk-theme
       - gtk3-engines-xfce
