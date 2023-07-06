@@ -2,25 +2,25 @@
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
 ##
-# qvm.template-whonix-gw
+# qvm.template-whonix-gateway
 # ======================
 #
-# Installs 'whonix-gw' template.
+# Installs 'whonix-gateway' template.
 #
 # Execute:
-#   qubesctl state.sls qvm.template-whonix-gw dom0
+#   qubesctl state.sls qvm.template-whonix-gateway dom0
 ##
 
 {% import "qvm/whonix.jinja" as whonix -%}
 
-template-whonix-gw-{{ whonix.whonix_version }}:
+template-whonix-gateway-{{ whonix.whonix_version }}:
   qvm.template_installed:
-    - name:     whonix-gw-{{ whonix.whonix_version }}
+    - name:     whonix-gateway-{{ whonix.whonix_version }}
     - fromrepo: {{ whonix.whonix_repo }}
 
-whonix-gw-tag:
+whonix-gateway-tag:
   qvm.vm:
-    - name: whonix-gw-{{ whonix.whonix_version }}
+    - name: whonix-gateway-{{ whonix.whonix_version }}
     - tags:
       - present:
         - whonix-updatevm
@@ -28,7 +28,7 @@ whonix-gw-tag:
       - enable:
         - whonix-gw
 
-whonix-gw-update-policy:
+whonix-gateway-update-policy:
   file.prepend:
     - name: /etc/qubes/policy.d/50-config-updates.policy
     - text:

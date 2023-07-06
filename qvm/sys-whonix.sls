@@ -17,7 +17,7 @@
 ##
 
 include:
-  - qvm.template-whonix-gw
+  - qvm.template-whonix-gateway
   - qvm.sys-firewall
 
 {%- import "qvm/whonix.jinja" as whonix -%}
@@ -26,7 +26,7 @@ include:
 {% load_yaml as defaults -%}
 name:          sys-whonix
 present:
-  - template:  whonix-gw-{{ whonix.whonix_version }}
+  - template:  whonix-gateway-{{ whonix.whonix_version }}
   - label:     black
   - mem:       500
 prefs:
@@ -34,7 +34,7 @@ prefs:
   - provides-network: true
   - autostart: true
 require:
-  - qvm:       template-whonix-gw-{{ whonix.whonix_version }}
+  - qvm:       template-whonix-gateway-{{ whonix.whonix_version }}
   - qvm:       sys-firewall
 {%- endload %}
 

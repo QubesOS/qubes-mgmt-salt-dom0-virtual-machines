@@ -15,30 +15,30 @@ qvm-disabled:
   debug: true
   force: true
 
-  whonix-gw:
+  whonix-gateway:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - qvm:       template-whonix-gw
+      - qvm:       template-whonix-gateway
       - qvm:       test-sys-whonix
 
-  whonix-ws:
+  whonix-workstation:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - qvm:       template-whonix-ws
+      - qvm:       template-whonix-workstation
       - qvm:       test-sys-whonix
 
   sys-whonix:
     name:          test-sys-whonix
     #present:
-    #  - template:  whonix-gw
+    #  - template:  whonix-gateway
     #  - label:     yellow
     #  - mem:       600
     #  - flags:
     #    - proxy
     require:
-      - qvm:       template-whonix-gw
+      - qvm:       template-whonix-gateway
       - qvm:       test-sys-firewall
 
   anon-whonix:
@@ -46,7 +46,7 @@ qvm-disabled:
     prefs:
       - netvm:     test-sys-whonix
     require:
-      - qvm:       template-whonix-ws
+      - qvm:       template-whonix-workstation
       - qvm:       test-sys-whonix
 
   work:
