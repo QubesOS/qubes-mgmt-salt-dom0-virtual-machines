@@ -2,42 +2,35 @@
 # vim: set syntax=yaml ts=2 sw=2 sts=2 et :
 
 ##
-# qvm.template-whonix-ws
+# qvm.template-whonix-gateway
 # ======================
 #
-# Installs 'whonix-ws' template.
+# Installs 'whonix-gateway' template.
 #
 # Execute:
-#   qubesctl state.sls qvm.template-whonix-ws dom0
+#   qubesctl state.sls qvm.template-whonix-gateway dom0
 ##
 
 {% import "qvm/whonix.jinja" as whonix -%}
 
-template-whonix-ws-{{ whonix.whonix_version }}:
+template-whonix-gateway-{{ whonix.whonix_version }}:
   qvm.template_installed:
-    - name:     whonix-ws-{{ whonix.whonix_version }}
+    - name:     whonix-gateway-{{ whonix.whonix_version }}
     - fromrepo: {{ whonix.whonix_repo }}
 
-whonix-ws-tag:
+whonix-gateway-tag:
   qvm.vm:
-    - name: whonix-ws-{{ whonix.whonix_version }}
+    - name: whonix-gateway-{{ whonix.whonix_version }}
     - tags:
       - present:
         - whonix-updatevm
     - features:
       - enable:
-        - whonix-ws
+        - whonix-gw
 
-whonix-ws-update-policy:
+whonix-gateway-update-policy:
   file.prepend:
     - name: /etc/qubes-rpc/policy/qubes.UpdatesProxy
     - text:
       - $tag:whonix-updatevm $default allow,target=sys-whonix
       - $tag:whonix-updatevm $anyvm deny
-
-# this is for whonix-ws based VMs
-whonix-get-date-policy:
-  file.prepend:
-    - name: /etc/qubes-rpc/policy/qubes.GetDate
-    - text:
-      - $tag:anon-vm $anyvm deny

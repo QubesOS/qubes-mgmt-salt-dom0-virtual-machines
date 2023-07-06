@@ -104,8 +104,8 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.top
 /srv/formulas/base/virtual-machines-formula/qvm/template.jinja
 /srv/formulas/base/virtual-machines-formula/qvm/template-gui.jinja
-/srv/formulas/base/virtual-machines-formula/qvm/template-whonix-gw.sls
-/srv/formulas/base/virtual-machines-formula/qvm/template-whonix-ws.sls
+/srv/formulas/base/virtual-machines-formula/qvm/template-whonix-gateway.sls
+/srv/formulas/base/virtual-machines-formula/qvm/template-whonix-workstation.sls
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.sls
 /srv/formulas/base/virtual-machines-formula/qvm/untrusted.top
 /srv/formulas/base/virtual-machines-formula/qvm/updates-via-whonix.sls
@@ -115,7 +115,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/vault.sls
 /srv/formulas/base/virtual-machines-formula/qvm/vault.top
 /srv/formulas/base/virtual-machines-formula/qvm/whonix.jinja
-/srv/formulas/base/virtual-machines-formula/qvm/whonix-ws-dvm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/whonix-workstation-dvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/work.sls
 /srv/formulas/base/virtual-machines-formula/qvm/work.top
 

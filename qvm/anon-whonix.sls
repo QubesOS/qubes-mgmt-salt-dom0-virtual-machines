@@ -17,9 +17,9 @@
 ##
 
 include:
-  - qvm.template-whonix-ws
+  - qvm.template-whonix-workstation
   - qvm.sys-whonix
-  - qvm.whonix-ws-dvm
+  - qvm.whonix-workstation-dvm
 
 {%- import "qvm/whonix.jinja" as whonix -%}
 {%- from "qvm/template.jinja" import load -%}
@@ -27,18 +27,18 @@ include:
 {% load_yaml as defaults -%}
 name:          anon-whonix
 present:
-  - template:  whonix-ws-{{ whonix.whonix_version }}
+  - template:  whonix-workstation-{{ whonix.whonix_version }}
   - label:     red
 prefs:
   - netvm:     sys-whonix
-  - default-dispvm: whonix-ws-{{ whonix.whonix_version }}-dvm
+  - default-dispvm: whonix-workstation-{{ whonix.whonix_version }}-dvm
 tags:
   - add:
     - anon-vm
 require:
-  - qvm:       template-whonix-ws-{{ whonix.whonix_version }}
+  - qvm:       template-whonix-workstation-{{ whonix.whonix_version }}
   - qvm:       sys-whonix
-  - qvm:       whonix-ws-{{ whonix.whonix_version }}-dvm
+  - qvm:       whonix-workstation-{{ whonix.whonix_version }}-dvm
 {%- endload %}
 
 {{ load(defaults) }}
