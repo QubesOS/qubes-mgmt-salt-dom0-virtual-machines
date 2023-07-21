@@ -30,7 +30,7 @@ present:
 prefs:
   - netvm:     ""
   - guivm:     dom0
-  - audiovm:   ""
+  - audiovm:   dom0
   - autostart: true
 service:
   - enable:
