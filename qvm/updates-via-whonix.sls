@@ -15,6 +15,6 @@
 
 default-update-policy-whonix:
   file.prepend:
-    - name: /etc/qubes/policy.d/qubes.UpdatesProxy
+    - name: /etc/qubes/policy.d/50-config-updates.policy
     - text:
       - qubes.UpdatesProxy * @type:TemplateVM @default allow target=sys-whonix
