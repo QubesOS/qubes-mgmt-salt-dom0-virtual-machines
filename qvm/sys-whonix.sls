@@ -25,11 +25,13 @@ include:
 
 {% load_yaml as defaults -%}
 name:          sys-whonix
+force:         true
 present:
   - template:  whonix-gateway-{{ whonix.whonix_version }}
   - label:     black
   - mem:       500
 prefs:
+  - template:  whonix-gateway-{{ whonix.whonix_version }}
   - netvm:     sys-firewall
   - provides-network: true
   - autostart: true
