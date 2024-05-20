@@ -6,7 +6,7 @@
 # ===============
 ##
 
-{{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-38-xfce') }}:
+{{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-39-xfce') }}:
   qvm.template_installed: []
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-vnc:dummy-modules', []) %}
@@ -26,7 +26,7 @@ name:          sys-gui-vnc
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-38-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui-vnc:template', 'fedora-39-xfce') }}
 prefs:
   - netvm:     ""
   - guivm:     dom0
