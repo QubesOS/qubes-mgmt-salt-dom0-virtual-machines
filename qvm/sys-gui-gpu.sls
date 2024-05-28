@@ -8,7 +8,7 @@
 
 sys-gui-gpu-template:
   qvm.template_installed:
-    - name: {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-39-xfce') }}
+    - name: {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-40-xfce') }}
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
 dummy-psu-sender:
@@ -26,7 +26,7 @@ name:          sys-gui-gpu
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-39-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-40-xfce') }}
 prefs:
   - virt_mode: hvm
   - netvm:     ""
