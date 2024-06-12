@@ -36,7 +36,7 @@ service:
   - enable:
     - lightdm
     - guivm
-    - guivm-gui-vnc
+    - guivm-vnc
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-vnc:dummy-modules', []) %}
     - dummy-psu
 {% endif %}
