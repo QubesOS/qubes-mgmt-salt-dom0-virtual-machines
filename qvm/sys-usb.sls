@@ -62,6 +62,9 @@ service:
   - disable:
     - network-manager
     - meminfo-writer
+features:
+  - set:
+    - servicevm: 1
 {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
 require:
   - qvm:       default-dvm
