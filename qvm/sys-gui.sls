@@ -9,13 +9,16 @@
 {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-40-xfce') }}:
   qvm.template_installed: []
 
+{% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) or 'backlight' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
+sys-gui-installed:
+  pkg.installed:
+    - pkgs:
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
-dummy-psu-sender:
-  pkg.installed: []
+      - dummy-psu-sender
 {% endif %}
 {% if 'backlight' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
-dummy-backlight-dom0:
-  pkg.installed: []
+      - dummy-backlight-dom0
+{% endif %}
 {% endif %}
 
 {% from "qvm/template.jinja" import load -%}

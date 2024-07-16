@@ -10,13 +10,13 @@ sys-gui-gpu-template:
   qvm.template_installed:
     - name: {{ salt['pillar.get']('qvm:sys-gui-gpu:template', 'fedora-40-xfce') }}
 
+sys-gui-gpu-installed:
+  pkg.installed:
+    - pkgs:
+      - qubes-input-proxy-sender
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui-gpu:dummy-modules', []) %}
-dummy-psu-sender:
-  pkg.installed: []
+      - dummy-psu-sender
 {% endif %}
-
-qubes-input-proxy-sender:
-  pkg.installed: []
 
 {% from "qvm/template.jinja" import load -%}
 {% from "qvm/template-gui.jinja" import gui_common -%}
