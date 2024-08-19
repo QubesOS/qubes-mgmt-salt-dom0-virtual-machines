@@ -25,8 +25,6 @@ include:
 name:         personal
 present:
   - label:    yellow
-prefs:
-  - netvm:    sys-firewall
 require:
   - qvm:      sys-firewall
 {%- endload %}

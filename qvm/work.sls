@@ -25,8 +25,6 @@ include:
 name:         work
 present:
   - label:    blue
-prefs:
-  - netvm:    sys-firewall
 require:
   - qvm:      sys-firewall
 {%- endload %}
