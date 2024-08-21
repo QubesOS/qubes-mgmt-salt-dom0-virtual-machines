@@ -5,7 +5,7 @@
 {% set user = salt['group.info']('qubes').get('members')[0] %}
 # 'password_hash' is obtained from /etc/shadow with corresponding
 # user set above.
-{% set password_hash = salt['shadow.info'](user).get('passwd') %}
+{% set password_hash = salt['cmd.run']("getent shadow " + user).split(":")[1] %}
 
 # Default password is set to '123456'
 {% if password_hash == '' %}
