@@ -25,8 +25,7 @@ include:
 name:         untrusted
 present:
   - label:    red
-prefs:
-  - netvm:    sys-firewall
+require:
   - qvm:      sys-firewall
 {%- endload %}
 
