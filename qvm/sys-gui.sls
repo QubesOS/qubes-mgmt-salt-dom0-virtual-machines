@@ -6,7 +6,7 @@
 # ===========
 ##
 
-{{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-40-xfce') }}:
+{{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-41-xfce') }}:
   qvm.template_installed: []
 
 {% if 'psu' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) or 'backlight' in salt['pillar.get']('qvm:sys-gui:dummy-modules', []) %}
@@ -29,7 +29,7 @@ name:          sys-gui
 present:
   - label:     black
   - maxmem:    4000
-  - template:  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-40-xfce') }}
+  - template:  {{ salt['pillar.get']('qvm:sys-gui:template', 'fedora-41-xfce') }}
 prefs:
   - netvm:     ""
   - guivm:     dom0
