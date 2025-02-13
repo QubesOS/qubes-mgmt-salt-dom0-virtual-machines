@@ -49,7 +49,7 @@ present:
   - template:  default-dvm
   {% endif %}
   - label:     red
-  - mem:       400
+  - mem:       300
   - flags:
     - net
 prefs:
@@ -62,6 +62,8 @@ service:
   - disable:
     - network-manager
     - meminfo-writer
+  - enable:
+    - minimal-usbvm
 {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}
 require:
   - qvm:       default-dvm

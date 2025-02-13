@@ -38,11 +38,12 @@ prefs:
   - virt_mode: hvm
   - autostart: true
   - provides-network: true
-  - memory: 425
+  - memory: 300
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', [])|yaml }}
 service:
   - enable:
     - clocksync
+    - minimal-netvm
   - disable:
     - meminfo-writer
 {% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
