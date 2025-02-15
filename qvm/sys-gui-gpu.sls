@@ -55,15 +55,31 @@ service:
   file.managed:
     - contents: "TARGET_DOMAIN=sys-gui-gpu"
 
+{% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
+{% set mouse_action = 'ask user=root default_target=sys-gui-gpu' %}
+{% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
+{% set mouse_action = 'allow user=root target=sys-gui-gpu' %}
+{% else %}
+{% set mouse_action = 'deny' %}
+{% endif %}
+
+{% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'ask' %}
+{% set keyboard_action = 'ask user=root default_target=sys-gui-gpu' %}
+{% elif salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
+{% set keyboard_action = 'allow user=root target=sys-gui-gpu' %}
+{% else %}
+{% set keyboard_action = 'deny' %}
+{% endif %}
+
 # Setup Qubes RPC policy for sys-usb to sys-gui-gpu
 sys-usb-input-proxy:
   file.managed:
     - name: /etc/qubes/policy.d/45-sys-gui-gpu.policy
-{% if salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'ask' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 ask user=root default_target=sys-gui-gpu
-{% elif salt['pillar.get']('qvm:sys-usb:mouse-action', 'ask') == 'allow' %}
-    - text: qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 allow user=root target=sys-gui-gpu
-{% endif %}
+    - contents: |
+        qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ mouse_action }}
+        qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ keyboard_action }}
+        # not configurable by this state
+        qubes.InputTablet * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 deny
 
 {{ load(defaults) }}
 {{ gui_common(defaults.name) }}
