@@ -34,10 +34,7 @@ prefs:
   - audiovm:   ""
   - memory:    1000
   - autostart: false #TODO true
-  - kernelopts: "nopat iommu=soft swiotlb=8192 root=/dev/mapper/dmroot ro console=hvc0 xen_scrub_pages=0"
 features:
-  - enable:
-    - no-default-kernelopts
   - set:
     - video-model: none
     - input-dom0-proxy: true
