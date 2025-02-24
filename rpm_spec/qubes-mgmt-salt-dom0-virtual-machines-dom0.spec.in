@@ -14,7 +14,7 @@ Requires:  qubes-mgmt-salt-dom0
 Requires:  qubes-core-admin-addon-whonix
 # do not require qubes-core-dom0 directly, but if installed, make sure it's the
 # right version
-Conflicts: qubes-core-dom0 < 4.0.35
+Conflicts: qubes-core-dom0 < 4.3.19
 
 Source0: %{name}-%{version}.tar.gz
 
