@@ -74,7 +74,9 @@ sys-usb-input-proxy:
     - name: /etc/qubes/policy.d/45-sys-gui-gpu.policy
     - contents: |
         qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ mouse_action }}
+        qubes.InputMouse * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} sys-gui-gpu {{ mouse_action }}
         qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 {{ keyboard_action }}
+        qubes.InputKeyboard * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} sys-gui-gpu {{ keyboard_action }}
         # not configurable by this state
         qubes.InputTablet * {{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }} dom0 deny
 
