@@ -17,6 +17,7 @@
         qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.ClipboardCopy                 +   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.ClipboardPaste                +   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        qubes.Filecopy                      *   {{ vmname }}             @tag:guivm-{{ vmname }}          ask
         # TODO: limit to templates related to @tag:guivm-{{ vmname }} only
         qubes.GetAppmenus                   *   {{ vmname }}             @type:TemplateVM                 allow
         qubes.SetMonitorLayout              *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
