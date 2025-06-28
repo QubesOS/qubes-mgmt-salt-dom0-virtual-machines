@@ -41,6 +41,9 @@
         admin.label.Index                   *   {{ vmname }}             dom0                             allow
         admin.vm.feature.Set +keyboard-layout   {{ vmname }}             {{ vmname }}                     allow target=dom0
         admin.vm.property.Get               *   {{ vmname }}             dom0                             allow
+        admin.vm.property.Get    +stubdom_xid   {{ vmname }}             @tag:guivm-{{ vmname }}          allow target=dom0
+        admin.vm.property.Get            +xid   {{ vmname }}             @tag:guivm-{{ vmname }}          allow target=dom0
+        admin.vm.property.GetAll            *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow target=dom0
         admin.vm.volume.List                *   {{ vmname }}             dom0                             allow
         admin.vm.device.pci.Available       *   {{ vmname }}             dom0                             allow
         admin.vm.device.mic.Available       *   {{ vmname }}             dom0                             allow
