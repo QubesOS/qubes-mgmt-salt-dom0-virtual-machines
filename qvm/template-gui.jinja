@@ -45,7 +45,11 @@
         admin.vm.device.pci.Available       *   {{ vmname }}             dom0                             allow
         admin.vm.device.mic.Available       *   {{ vmname }}             dom0                             allow
         admin.vm.feature.Get        +internal   {{ vmname }}             dom0                             allow
-        admin.vm.feature.Get        +servicevm  {{ vmname }}             dom0                             allow
+        admin.vm.feature.Get       +servicevm   {{ vmname }}             dom0                             allow
+        admin.vm.feature.Get        +template   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
+        # TODO: limit to templates related to @tag:guivm-{{ vmname }} only
+        admin.vm.feature.Get        +template   {{ vmname }}             @type:TemplateVM                 allow
+        admin.vm.feature.List               *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow target=dom0
         # TODO: find a way to avoid this one (ram, cpu usage)
         admin.vm.CurrentState               *   {{ vmname }}             dom0                             allow
 
