@@ -52,6 +52,12 @@ if [ -r /srv/pillar/_tops/dom0/qvm.top ]; then
     rm -f /srv/pillar/_tops/dom0/qvm.top
 fi
 
+# If sys-usb was already prioritized before login,
+# ensure that it is also prioritized before other autostarted VMs.
+if [ -s /etc/systemd/system/qubes-vm@sys-usb.service.d/50_autostart.conf ]; then
+    qubesctl state.sls qvm.sys-usb-prioritize-autostart
+fi
+
 %posttrans
 
 if [ -e /var/run/%{name}-default-mgmt-dvm-firstinstall ]; then
