@@ -35,7 +35,6 @@ include:
   - qvm.default-dispvm
   {% endif %}
   - qvm.hide-usb-from-dom0
-  - qvm.sys-usb-prioritize-autostart
 
 {% from "qvm/template.jinja" import load -%}
 

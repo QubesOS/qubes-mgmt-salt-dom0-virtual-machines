@@ -18,6 +18,7 @@
 
 include:
  - qvm.sys-usb
+ - qvm.sys-usb-prioritize-autostart
 
 {% from "qvm/template.jinja" import load -%}
 
