@@ -5,7 +5,7 @@
 # qvm.sys-usb-prioritize-autostart
 # ================================
 #
-# Prioritize sys-usb startup before login.
+# Prioritize sys-usb startup before login and other autostarted VMs.
 #
 # Execute:
 #   qubesctl state.sls qvm.sys-usb-prioritize-autostart
@@ -16,4 +16,11 @@
     - contents: |
         [Unit]
         Before=systemd-user-sessions.service
+    - makedirs: True
+
+/etc/systemd/system/qubes-vm@.service.d/50_autostart.conf:
+  file.managed:
+    - contents: |
+        [Unit]
+        After=qubes-vm@{{ salt['pillar.get']('qvm:sys-usb:name', 'sys-usb') }}.service
     - makedirs: True
