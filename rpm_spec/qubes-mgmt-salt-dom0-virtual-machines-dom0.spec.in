@@ -98,6 +98,7 @@ fi
 /srv/formulas/base/virtual-machines-formula/qvm/sys-firewall.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-net.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-net.top
+/srv/formulas/base/virtual-machines-formula/qvm/sys-usb-prioritize-autostart.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-usb.sls
 /srv/formulas/base/virtual-machines-formula/qvm/sys-usb.top
 /srv/formulas/base/virtual-machines-formula/qvm/sys-whonix.sls
