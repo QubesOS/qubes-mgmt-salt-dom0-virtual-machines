@@ -74,13 +74,15 @@ fi
 /srv/formulas/base/virtual-machines-formula/LICENSE
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.sls
 /srv/formulas/base/virtual-machines-formula/qvm/anon-whonix.top
+/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/default-dispvm.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-guivm.sls
 /srv/formulas/base/virtual-machines-formula/qvm/default-guivm.top
-/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.sls
-/srv/formulas/base/virtual-machines-formula/qvm/default-audiovm.top
 /srv/formulas/base/virtual-machines-formula/qvm/default-mgmt-dvm.sls
+/srv/formulas/base/virtual-machines-formula/qvm/disposable-preload.sls
+/srv/formulas/base/virtual-machines-formula/qvm/disposable-preload.top
 /srv/formulas/base/virtual-machines-formula/qvm/hide-usb-from-dom0.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.sls
 /srv/formulas/base/virtual-machines-formula/qvm/personal.top
@@ -144,10 +146,12 @@ fi
 %config(noreplace) /srv/pillar/base/qvm/sys-usb-allow-mouse.top
 %config(noreplace) /srv/pillar/base/qvm/usb-keyboard.sls
 %config(noreplace) /srv/pillar/base/qvm/usb-keyboard.top
-%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.sls
-%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.top
+%config(noreplace) /srv/pillar/base/qvm/disposable-preload.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-preload.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.sls
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-firewall.top
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.sls
+%config(noreplace) /srv/pillar/base/qvm/disposable-sys-net.top
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-usb.sls
 %config(noreplace) /srv/pillar/base/qvm/disposable-sys-usb.top
 /srv/pillar/base/qvm/init.top

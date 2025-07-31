@@ -11,6 +11,9 @@
 #   qubesctl state.sls qvm.default-dispvm dom0
 ##
 
+include:
+  - qvm.disposable-preload
+
 {% set gui_user = salt['cmd.shell']('groupmems -l -g qubes') %}
 {% set default_template = salt['cmd.shell']('qubes-prefs default-template') %}
 
@@ -29,5 +32,5 @@ default-dvm:
 qvm-appmenus --get-default-whitelist {{default_template}} | grep -i 'firefox\|term' | qvm-appmenus --set-whitelist=- --update default-dvm:
   cmd.run:
     - runas: {{ gui_user }}
-    - requires:
+    - require:
       - qvm: default-dvm
