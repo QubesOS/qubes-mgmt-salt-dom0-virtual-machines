@@ -51,7 +51,6 @@ sys-gui-xfce:
       - xscreensaver-base
 {% elif grains['os'] == 'Debian' %}
       - blackbird-gtk-theme
-      - gnome-themes-standard
       - greybird-gtk-theme
       - gtk3-engines-xfce
       - libxfce4ui-utils
