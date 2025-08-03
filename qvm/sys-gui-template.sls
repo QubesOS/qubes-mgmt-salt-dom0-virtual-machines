@@ -52,7 +52,6 @@ sys-gui-xfce:
 {% elif grains['os'] == 'Debian' %}
       - blackbird-gtk-theme
       - greybird-gtk-theme
-      - gtk3-engines-xfce
       - libxfce4ui-utils
       - lightdm
       - xfce4-screenshooter
