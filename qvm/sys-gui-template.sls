@@ -25,6 +25,7 @@ sys-gui-xfce:
       - xfce4-places-plugin
       - xfce4-power-manager
       - xfce4-pulseaudio-plugin
+      - xfce4-screensaver
       - xfce4-session
       - xfce4-settings
       - xfce4-settings-qubes
@@ -48,7 +49,6 @@ sys-gui-xfce:
       - xfce4-screenshooter-plugin
       - xfdesktop
       - xfwm4-themes
-      - xscreensaver-base
 {% elif grains['os'] == 'Debian' %}
       - blackbird-gtk-theme
       - greybird-gtk-theme
@@ -56,7 +56,6 @@ sys-gui-xfce:
       - lightdm
       - xfce4-screenshooter
       - xfdesktop4
-      - xscreensaver
 {% endif %}
 
 /etc/systemd/system/lightdm.service.d/qubes.conf:
