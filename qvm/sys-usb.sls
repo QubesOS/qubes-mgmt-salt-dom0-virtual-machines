@@ -35,6 +35,9 @@ include:
   - qvm.default-dispvm
   {% endif %}
   - qvm.hide-usb-from-dom0
+  {% if salt['pillar.get']('qvm:sys-usb:keyboard-action', 'deny') == 'allow' %}
+  - qvm.sys-usb-prioritize-autostart
+  {% endif %}
 
 {% from "qvm/template.jinja" import load -%}
 
