@@ -35,7 +35,6 @@ sys-gui-xfce:
       - xfwm4
 {% if grains['os'] == 'Fedora' %}
       - dummy-psu-receiver
-      - dummy-psu-module
       - dummy-backlight-vm
       - adwaita-gtk2-theme
       - adwaita-icon-theme
