@@ -24,6 +24,9 @@ prefs:
   - pci_strictreset: false
   - pcidevs:   {{ salt['grains.get']('pci_audio_devs', [])|yaml }}
   - template:  {{ salt['pillar.get']('qvm:sys-audio:template', 'fedora-42-xfce') }}
+features:
+  - enable:
+    - servicevm
 service:
   - enable:
     - audiovm
