@@ -39,6 +39,9 @@ prefs:
   - autostart: true
   - provides-network: true
   - memory:       500
+features:
+  - enable:
+    - servicevm
 require:
   {% if salt['pillar.get']('qvm:sys-firewall:disposable', false) %}
   - qvm:       default-dvm

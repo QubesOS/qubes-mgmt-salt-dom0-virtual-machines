@@ -48,6 +48,7 @@ service:
 features:
   - enable:
     - gui-allow-fullscreen
+    # Consider enabling servicevm for sys-gui family
   - set:
     # don't intercept those at dom0, let guivm see them
     - gui-secure-copy-sequence: none
