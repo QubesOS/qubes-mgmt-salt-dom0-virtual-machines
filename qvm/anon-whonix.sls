@@ -26,10 +26,12 @@ include:
 
 {% load_yaml as defaults -%}
 name:          anon-whonix
+force:         true
 present:
   - template:  whonix-workstation-{{ whonix.whonix_version }}
   - label:     red
 prefs:
+  - template:  whonix-workstation-{{ whonix.whonix_version }}
   - netvm:     sys-whonix
   - default-dispvm: whonix-workstation-{{ whonix.whonix_version }}-dvm
 tags:
