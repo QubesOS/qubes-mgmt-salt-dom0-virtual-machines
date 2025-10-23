@@ -35,6 +35,9 @@ prefs:
   - netvm:     sys-firewall
   - provides-network: true
   - autostart: true
+features:
+  - enable:
+    - servicevm
 require:
   - qvm:       template-whonix-gateway-{{ whonix.whonix_version }}
   - qvm:       sys-firewall

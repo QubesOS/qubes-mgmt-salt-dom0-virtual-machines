@@ -40,6 +40,9 @@ prefs:
   - provides-network: true
   - memory: 300
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', [])|yaml }}
+features:
+  - enable:
+    - servicevm
 service:
   - enable:
     - clocksync
