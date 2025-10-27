@@ -54,6 +54,7 @@ sys-audio-rpc:
         admin.vm.property.Get               +xid     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.property.Get               +stubdom_xid     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.property.Get               +virt_mode     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.property.Get               +is_preload     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.feature.CheckWithTemplate  +audio   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.feature.CheckWithTemplate  +audio-model   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
 
