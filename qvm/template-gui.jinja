@@ -25,6 +25,7 @@
         qubes.SyncAppMenus                  *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
         qubes.WindowIconUpdater             *   @tag:guivm-{{ vmname }}  dom0                        allow   target={{ vmname }}
         qubes.Notifications                 *   @tag:guivm-{{ vmname }}  @default                    allow   target={{ vmname }} autostart=no
+        qubes.WaitForSession                *   @tag:guivm-{{ vmname }}  @default                    allow   target={{ vmname }} autostart=no
         qubes.WaitForSession                *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
 {%- if 'psu' in salt['pillar.get']('qvm:' + vmname + ':dummy-modules', []) %}
         qubes.PowerSupply                   *   {{ vmname }}             @default                         allow target=dom0
@@ -80,4 +81,3 @@
         {{ vmname }} {{ vmname }} allow target=dom0
 {% endif %}
 {%- endmacro %}
-
