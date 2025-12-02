@@ -38,7 +38,7 @@ access to the "xl" command.
     {%- set preload_threshold = 500 %}
   {%- else %}
     {%- set preload_threshold = (total_memory_MiB * 0.05) | round | int %}
-    {%- set preload_threshold = [preload_threshold, 1000] | max %}
+    {%- set preload_threshold = [preload_threshold, 1500] | max %}
     {%- set preload_threshold = [preload_threshold, 6000] | min %}
   {%- endif %}
 {%- endif %}
