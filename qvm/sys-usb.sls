@@ -65,6 +65,7 @@ service:
   - disable:
     - network-manager
     - meminfo-writer
+    - qubes-update-check
   - enable:
     - minimal-usbvm
 {% if salt['pillar.get']('qvm:sys-usb:disposable', false) %}

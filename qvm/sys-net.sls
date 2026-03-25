@@ -49,6 +49,7 @@ service:
     - minimal-netvm
   - disable:
     - meminfo-writer
+    - qubes-update-check
 {% if salt['pillar.get']('qvm:sys-net:disposable', false) %}
 require:
   - qvm:       default-dvm
