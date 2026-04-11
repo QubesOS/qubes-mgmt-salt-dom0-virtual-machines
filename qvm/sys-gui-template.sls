@@ -36,7 +36,6 @@ sys-gui-xfce:
 {% if grains['os'] == 'Fedora' %}
       - dummy-psu-receiver
       - dummy-backlight-vm
-      - adwaita-gtk2-theme
       - adwaita-icon-theme
       - greybird-dark-theme
       - greybird-light-theme
