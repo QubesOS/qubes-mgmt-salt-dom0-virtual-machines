@@ -27,6 +27,10 @@ whonix-gateway-tag:
     - features:
       - enable:
         - whonix-gw
+      - set:
+        - audio-initial-volume: "mute"
+    prefs:
+      - audiovm:  ""
 
 whonix-gateway-update-policy:
   file.prepend:

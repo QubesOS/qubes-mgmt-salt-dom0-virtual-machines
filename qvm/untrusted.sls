@@ -25,6 +25,9 @@ include:
 name:         untrusted
 present:
   - label:    red
+features:
+  - set:
+    - audio-initial-volume: "mute"
 require:
   - qvm:      sys-firewall
 {%- endload %}

@@ -57,6 +57,8 @@ sys-audio-rpc:
         admin.vm.property.Get               +is_preload     sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.feature.CheckWithTemplate  +audio   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
         admin.vm.feature.CheckWithTemplate  +audio-model   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.feature.CheckWithTemplate  +audio-initial-volume   sys-audio     @tag:audiovm-sys-audio  allow   target=dom0
+        admin.vm.feature.CheckWithTemplate  +audio-initial-volume   sys-audio     sys-audio  allow   target=dom0
 
 {% else %}
 
