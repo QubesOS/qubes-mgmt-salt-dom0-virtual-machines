@@ -31,6 +31,7 @@ present:
   - label:     black
   - mem:       500
 prefs:
+  - audiovm:   ""
   - template:  whonix-gateway-{{ whonix.whonix_version }}
   - netvm:     sys-firewall
   - provides-network: true
