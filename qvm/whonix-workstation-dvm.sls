@@ -33,7 +33,6 @@ present:
 prefs:
   - netvm:     sys-whonix
   - template-for-dispvms: true
-  - default-dispvm: whonix-workstation-{{ whonix.whonix_version }}-dvm
 tags:
   - add:
     - anon-vm
@@ -52,3 +51,8 @@ qvm-appmenus --update whonix-workstation-{{ whonix.whonix_version }}-dvm:
       - qvm:  whonix-workstation-{{ whonix.whonix_version }}-dvm
 
 {{ load(defaults) }}
+
+whonix-workstation-dvm-default-dispvm:
+  qvm.prefs:
+  - name: whonix-workstation-{{ whonix.whonix_version }}-dvm
+  - default-dispvm: whonix-workstation-{{ whonix.whonix_version }}-dvm
