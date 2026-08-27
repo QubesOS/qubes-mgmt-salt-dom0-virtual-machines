@@ -38,7 +38,7 @@ prefs:
   - virt_mode: hvm
   - autostart: true
   - provides-network: true
-  - memory: 300
+  - memory: 400
   - pcidevs:   {{ salt['grains.get']('pci_net_devs', [])|yaml }}
 features:
   - enable:
