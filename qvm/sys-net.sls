@@ -34,6 +34,7 @@ present:
   {% endif %}
   - label:     red
 prefs:
+  - audiovm:   ""
   - netvm:     ""
   - virt_mode: hvm
   - autostart: true

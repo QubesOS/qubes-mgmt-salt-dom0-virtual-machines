@@ -27,6 +27,8 @@ whonix-workstation-tag:
     - features:
       - enable:
         - whonix-ws
+      - set:
+        -audio-initial-volume: "mute"
 
 whonix-workstation-update-policy:
   file.prepend:

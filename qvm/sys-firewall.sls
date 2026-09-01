@@ -35,6 +35,7 @@ present:
   {% endif %}
   - label:     green
 prefs:
+  - audiovm:   ""
   - netvm:     sys-net
   - autostart: true
   - provides-network: true
