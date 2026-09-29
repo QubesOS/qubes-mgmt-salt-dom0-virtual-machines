@@ -32,6 +32,12 @@
 {%- if 'backlight' in salt['pillar.get']('qvm:' + vmname + ':dummy-modules', []) %}
         qubes.SetBrightness                 *   {{ vmname }}             @default                         allow target=dom0
 {%- endif %}
+{%- if salt['pillar.get']('qvm:' + vmname + ':power-control', True) %}
+        # Shutdown, restart and suspend from the session act on the machine
+        qubes.PowerShutdown                 *   {{ vmname }}             dom0                             allow
+        qubes.PowerReboot                   *   {{ vmname }}             dom0                             allow
+        qubes.PowerSuspend                  *   {{ vmname }}             dom0                             allow
+{%- endif %}
 
         # Parts of Admin API necessary for GUI-related tools to work
         admin.vm.List                       *   {{ vmname }}             dom0                             allow
