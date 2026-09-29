@@ -6,9 +6,11 @@
 # ===========
 ##
 
-/home/user/.config/autostart/qvm-start-daemon.desktop:
+{% set user = salt['cmd.run']('qubesdb-read /default-user') or 'user' %}
+{% set home = salt['user.info'](user).get('home') or '/home/' ~ user %}
+{{ home }}/.config/autostart/qvm-start-daemon.desktop:
   file.managed:
-    - user: user
+    - user: {{ user }}
     - mode: 640
     - makedirs: True
     - contents: |
@@ -23,4 +25,4 @@
 /rw/config/rc.local:
   file.append:
     - text: |
-        sudo usermod -p '{{ salt['pillar.get']('qvm:sys-gui-gpu-vm:password-hash', '!') }}' user
+        sudo usermod -p '{{ salt['pillar.get']('qvm:sys-gui-gpu-vm:password-hash', '!') }}' "$(qubesdb-read /default-user)"
