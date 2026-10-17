@@ -9,4 +9,4 @@
 /rw/config/rc.local:
   file.append:
     - text: |
-        sudo usermod -p '{{ salt['pillar.get']('qvm:sys-gui-vnc-vm:password-hash', '!') }}' user
+        sudo usermod -p '{{ salt['pillar.get']('qvm:sys-gui-vnc-vm:password-hash', '!') }}' "$(qubesdb-read /default-user)"

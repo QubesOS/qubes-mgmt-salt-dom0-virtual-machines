@@ -6,11 +6,12 @@
 # ==============
 ##
 
-# WIP: currently use default user 'user'
+{% set user = salt['cmd.run']('qubesdb-read /default-user') or 'user' %}
+{% set home = salt['user.info'](user).get('home') or '/home/' ~ user %}
 {% for autostart in ['nm-applet'] %}
-/home/user/.config/autostart/{{autostart}}.desktop:
+{{ home }}/.config/autostart/{{autostart}}.desktop:
   file.managed:
-    - user: user
+    - user: {{ user }}
     - mode: 640
     - makedirs: True
     - contents: |

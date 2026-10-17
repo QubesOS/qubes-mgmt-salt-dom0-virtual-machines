@@ -6,19 +6,20 @@
 # ==============
 ##
 
-# WIP: currently use default user 'user'
-/home/user/.config/autostart/qubes-pulseaudio.desktop:
+{% set user = salt['cmd.run']('qubesdb-read /default-user') or 'user' %}
+{% set home = salt['user.info'](user).get('home') or '/home/' ~ user %}
+{{ home }}/.config/autostart/qubes-pulseaudio.desktop:
   file.managed:
-    - user: user
+    - user: {{ user }}
     - mode: 640
     - makedirs: True
     - contents: |
         [Desktop Entry]
         Hidden=true
 
-/home/user/.config/autostart/pulseaudio.desktop:
+{{ home }}/.config/autostart/pulseaudio.desktop:
   file.managed:
-    - user: user
+    - user: {{ user }}
     - mode: 640
     - makedirs: True
     - contents: |
