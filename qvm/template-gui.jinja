@@ -12,7 +12,9 @@
   file.managed:
     - name: /etc/qubes/policy.d/50-gui-{{ vmname }}.policy
     - contents: |
-        policy.EvalGUI  +qubes.ClipboardPaste   {{ vmname }}             dom0                             allow
+        policy.EvalGUI  +qubes.ClipboardPaste         {{ vmname }}             dom0                             allow
+        policy.EvalGUI  +qubes.ClipboardPaste+text    {{ vmname }}             dom0                             allow
+        policy.EvalGUI  +qubes.ClipboardPaste+image   {{ vmname }}             dom0                             allow
         qubes.GetImageRGBA                  *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.GetAppmenus                   *   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
         qubes.ClipboardCopy                 +   {{ vmname }}             @tag:guivm-{{ vmname }}          allow
