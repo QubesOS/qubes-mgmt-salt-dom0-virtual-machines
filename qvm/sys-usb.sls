@@ -61,6 +61,9 @@ prefs:
   - autostart: true
   - pcidevs:   {{ usb_pcidevs|yaml }}
   - pci_strictreset: false
+features:
+  - set:
+    - video-model: none
 service:
   - disable:
     - network-manager

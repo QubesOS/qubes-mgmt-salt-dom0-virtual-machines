@@ -43,6 +43,8 @@ prefs:
 features:
   - enable:
     - servicevm
+  - set:
+    - video-model: none
 service:
   - enable:
     - clocksync
